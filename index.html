@@ -1,33 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Website Saya</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Deododo</title>
+
     <style>
         body {
-            font-family: Arial;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
             text-align: center;
-            margin-top: 100px;
-            background: #f0f0f0;
         }
 
-        .box {
+        header {
+            background: #2d89ef;
+            color: white;
+            padding: 40px;
+        }
+
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 700px;
             background: white;
-            width: 300px;
-            margin: auto;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        h1 {
-            color: #333;
+        button {
+            background: #2d89ef;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
 
-<div class="box">
-    <h1>Halo!</h1>
-    <p>Selamat datang di website pertama saya.</p>
+<header>
+    <h1>Website Deododo</h1>
+    <p>Selamat datang di website saya</p>
+</header>
+
+<div class="container">
+    <h2>Tentang Website</h2>
+    <p>
+        Ini adalah website pertama saya yang dibuat menggunakan GitHub Pages.
+    </p>
+
+    <button onclick="alert('Halo! Terima kasih sudah mengunjungi website ini')">
+        Klik Saya
+    </button>
 </div>
 
 </body>
