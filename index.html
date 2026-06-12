@@ -24,6 +24,10 @@ html{
     scroll-behavior:smooth;
 }
 
+/* =====================
+DESKTOP VERSION (DEFAULT)
+===================== */
+
 .hero{
     width:100%;
     height:100vh;
@@ -32,10 +36,6 @@ html{
     overflow:hidden;
     background:white;
 }
-
-/* =====================
-LEFT
-===================== */
 
 .left{
     width:50%;
@@ -55,10 +55,6 @@ LEFT
     height:100%;
     object-fit:cover;
 }
-
-/* =====================
-RIGHT
-===================== */
 
 .right{
     width:50%;
@@ -110,10 +106,6 @@ RIGHT
     line-height:1.35;
 }
 
-/* =====================
-DIVIDER
-===================== */
-
 .divider{
     position:absolute;
     left:50%;
@@ -134,11 +126,9 @@ DIVIDER
     fill:none;
     stroke-linecap:round;
     stroke-linejoin:round;
-
     stroke-dasharray:1800;
     stroke-dashoffset:1800;
-
-    animation:drawLine 2.4s ease forwards;
+    animation:drawLine 3.8s ease forwards;
 }
 
 .red{
@@ -157,18 +147,10 @@ DIVIDER
 }
 
 @keyframes drawLine{
-    0%{
-        stroke-dashoffset:1800;
-    }
-    35%{
-        stroke-dashoffset:900;
-    }
-    48%{
-        stroke-dashoffset:900;
-    }
-    100%{
-        stroke-dashoffset:0;
-    }
+    0%{ stroke-dashoffset:1800; }
+    35%{ stroke-dashoffset:900; }
+    48%{ stroke-dashoffset:900; }
+    100%{ stroke-dashoffset:0; }
 }
 
 @keyframes fadeTop{
@@ -192,10 +174,6 @@ DIVIDER
         transform:translateY(0);
     }
 }
-
-/* ==========================
-PAGE 2 - PRODUCT INFO
-========================== */
 
 .page2{
     width:100%;
@@ -226,19 +204,9 @@ PAGE 2 - PRODUCT INFO
     border-bottom-right-radius:90px;
 }
 
-.red-strip{
-    background:#ff3131;
-}
-
-.yellow-strip{
-    background:#f5d34f;
-    margin-top:-2px;
-}
-
-.blue-strip{
-    background:#4595d4;
-    margin-top:-2px;
-}
+.red-strip{ background:#ff3131; }
+.yellow-strip{ background:#f5d34f; margin-top:-2px; }
+.blue-strip{ background:#4595d4; margin-top:-2px; }
 
 .product-title{
     position:absolute;
@@ -395,10 +363,20 @@ PAGE 2 - PRODUCT INFO
 }
 
 /* =====================
-RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
+MOBILE-ONLY ELEMENTS (awalnya disembunyikan)
 ===================== */
+.mobile-only{
+    display: none;
+}
 
-@media(max-width: 1024px){
+.mobile-scent-wrapper{
+    display: none;
+}
+
+/* =====================
+RESPONSIVE: TABLET (max-width: 900px)
+===================== */
+@media(max-width: 900px){
     .product-title{
         font-size: 52px;
         top: 70px;
@@ -444,15 +422,18 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
     .flower-left, .flower-right, .flower-bottom{
         width: 100px;
     }
-    .flower-right{
-        right: 15px;
-    }
     .tawas-title{
         font-size: 80px;
     }
 }
 
-@media(max-width: 880px){
+/* =====================
+RESPONSIVE: MOBILE/HP (max-width: 768px)
+SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
+===================== */
+@media(max-width: 768px){
+    
+    /* HERO SECTION - vertikal */
     .hero{
         flex-direction: column;
         height: auto;
@@ -461,7 +442,7 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
     .left, .right{
         width: 100%;
         height: 50vh;
-        min-height: 300px;
+        min-height: 320px;
     }
     .divider{
         display: none;
@@ -483,65 +464,82 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
     .desc{
         font-size: 16px;
     }
-}
 
-@media(max-width: 768px){
+    /* PAGE 2 - product top diubah jadi relative */
     .page2{
         padding: 12px 16px;
     }
     .product-top{
         height: auto;
         min-height: 580px;
-        padding-bottom: 20px;
+        padding-bottom: 30px;
     }
+    
+    /* title & desc jadi relative */
     .product-title{
         position: relative;
-        top: 60px;
-        left: auto;
+        top: 0;
+        left: 0;
         text-align: center;
         font-size: 42px;
+        padding-top: 60px;
         margin-bottom: 0;
+        width: 100%;
     }
     .product-desc{
         position: relative;
-        top: 70px;
-        left: auto;
+        top: 0;
+        left: 0;
         font-size: 14px;
-        padding: 0 16px;
-        margin-bottom: 20px;
+        padding: 16px 20px;
+        margin: 0 auto;
+        width: 100%;
     }
+    
+    /* gambar produk */
     .product-image{
         position: relative;
         left: auto;
         top: auto;
         transform: none;
         width: 220px;
-        margin: 80px auto 20px;
+        margin: 20px auto;
         display: block;
     }
-    .jasmine, .rose, .lavender{
-        position: relative;
-        display: inline-block;
-        margin: 0 8px;
-        font-size: 28px;
-        top: auto;
-        right: auto;
-        bottom: auto;
-    }
-    .scent-wrapper{
-        text-align: center;
-        margin: 10px 0 20px;
-    }
-    .jasmine{ color: white; }
-    .rose{ color: #ff5d66; }
-    .lavender{ color: #9334d9; }
     
+    /* SEMUA SCENT (Jasmine, Rose, Lavender) DISEMBUNYIKAN dari posisi absolute */
+    .jasmine, .rose, .lavender{
+        display: none;
+    }
+    
+    /* TAMPILKAN MOBILE VERSION SCENT WRAPPER */
+    .mobile-scent-wrapper{
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin: 16px 0 20px;
+    }
+    .mobile-scent{
+        font-size: 28px;
+        font-weight: 800;
+        padding: 4px 16px;
+        border-radius: 50px;
+        background: rgba(255,255,255,0.3);
+    }
+    .mobile-scent-jasmine{ color: white; }
+    .mobile-scent-rose{ color: #ff5d66; }
+    .mobile-scent-lavender{ color: #9334d9; }
+    
+    /* bottom grid jadi column */
     .bottom-grid{
         flex-direction: column;
     }
     .natural-box, .tawas-box{
         min-height: 280px;
     }
+    
+    /* natural text */
     .natural-text{
         font-size: 28px;
         white-space: normal;
@@ -550,14 +548,19 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
         left: 10px;
         right: 10px;
     }
+    
+    /* tawas */
     .tawas-title{
         font-size: 60px;
-        top: 10px;
+        top: 12px;
         left: 15px;
     }
     .tawas-image{
-        width: 60%;
+        width: 65%;
+        max-width: 150px;
     }
+    
+    /* dekorasi bunga */
     .flower-left, .flower-right, .flower-bottom{
         width: 70px;
     }
@@ -567,24 +570,38 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
         top: auto;
         bottom: 20px;
     }
+    
+    /* corner stripes lebih kecil */
+    .corner-stripes{
+        width: 200px;
+    }
+    .stripe{
+        height: 30px;
+    }
 }
 
+/* =====================
+MOBILE EKSTRA KECIL (max-width: 480px)
+===================== */
 @media(max-width: 480px){
     .product-title{
         font-size: 32px;
-        top: 40px;
+        padding-top: 45px;
     }
     .product-desc{
         font-size: 12px;
-        top: 50px;
+        padding: 12px 16px;
     }
     .product-image{
-        width: 180px;
-        margin-top: 60px;
+        width: 170px;
+        margin: 10px auto;
     }
-    .jasmine, .rose, .lavender{
-        font-size: 22px;
-        margin: 0 5px;
+    .mobile-scent{
+        font-size: 20px;
+        padding: 2px 12px;
+    }
+    .mobile-scent-wrapper{
+        gap: 8px;
     }
     .natural-text{
         font-size: 20px;
@@ -595,11 +612,18 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
     .flower-left, .flower-right, .flower-bottom{
         width: 50px;
     }
-    .corner-stripes{
-        width: 200px;
+    .left, .right{
+        min-height: 280px;
     }
-    .stripe{
-        height: 28px;
+    .question{
+        font-size: 24px;
+    }
+    .slogan{
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .desc{
+        font-size: 14px;
     }
 }
 
@@ -670,10 +694,16 @@ RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
         class="product-image"
         alt="Produk">
 
-        <div class="scent-wrapper">
-            <span class="jasmine">Jasmine</span>
-            <span class="rose">Rose</span>
-            <span class="lavender">Lavender</span>
+        <!-- DESKTOP VERSION: posisi absolute -->
+        <div class="jasmine">Jasmine</div>
+        <div class="rose">Rose</div>
+        <div class="lavender">Lavender</div>
+
+        <!-- MOBILE VERSION: tampil hanya di HP, tidak bertabrakan -->
+        <div class="mobile-scent-wrapper">
+            <span class="mobile-scent mobile-scent-jasmine">🌼 Jasmine</span>
+            <span class="mobile-scent mobile-scent-rose">🌹 Rose</span>
+            <span class="mobile-scent mobile-scent-lavender">🌸 Lavender</span>
         </div>
 
     </div>
