@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Deododo</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,49 +18,100 @@
 
 body{
     overflow:hidden;
-    background:#f7d4e1;
     font-family:'Poppins',sans-serif;
+    background:white;
 }
-
-/* ===== HERO ===== */
 
 .hero{
     width:100%;
     height:100vh;
     display:flex;
     position:relative;
-}
-
-/* ===== LEFT SIDE ===== */
-
-.left-side{
-    width:48%;
-    height:100vh;
-    position:relative;
     overflow:hidden;
-    background:#f7f2ef;
+    background:white;
 }
 
-.left-side img{
+/* =====================
+LEFT
+===================== */
+
+.left{
+    width:50%;
+    height:100vh;
+    background:white;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-60px);
+}
+
+.left.show{
+    animation:fadeTop 1s ease forwards;
+}
+
+.left img{
     width:100%;
     height:100%;
     object-fit:cover;
-    animation:productZoom 2s ease forwards;
-    filter:brightness(1.02);
 }
 
-.left-overlay{
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(
-        to right,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.2)
-    );
+/* =====================
+RIGHT
+===================== */
+
+.right{
+    width:50%;
+    height:100vh;
+    background:#efc3d2;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+
+    opacity:0;
+    transform:translateY(60px);
 }
 
-/* ===== MIDDLE DIVIDER ===== */
+.right.show{
+    animation:fadeBottom 1s ease forwards;
+}
+
+.content{
+    width:80%;
+    text-align:center;
+    transform:translateY(-20px);
+}
+
+.logo{
+    width:75%;
+    max-width:520px;
+    margin-bottom:40px;
+}
+
+.question{
+    font-size:clamp(36px,3vw,68px);
+    font-weight:800;
+    color:black;
+    line-height:1.15;
+    margin-bottom:18px;
+}
+
+.slogan{
+    font-size:clamp(34px,2.5vw,56px);
+    font-weight:800;
+    color:white;
+    margin-bottom:120px;
+}
+
+.desc{
+    font-size:clamp(20px,1.8vw,36px);
+    font-weight:700;
+    line-height:1.35;
+}
+
+/* =====================
+DIVIDER
+===================== */
 
 .divider-container{
     width:180px;
@@ -84,7 +134,9 @@ svg{
     opacity:0.25;
 }
 
-/* animasi isi */
+
+/* path animation */
+
 .animate-line{
     fill:none;
     stroke-width:36;
@@ -94,121 +146,76 @@ svg{
     animation:drawLine 4.2s ease forwards;
 }
 
+/* lebih mirip Canva */
 .red{
-    stroke:#ff3030;
+    stroke:#ff3131;
+    stroke-width:34;
 }
 
 .yellow{
-    stroke:#f4d64d;
+    stroke:#f5d34f;
+    stroke-width:34;
 }
 
 .blue{
-    stroke:#4896cf;
+    stroke:#4595d4;
+    stroke-width:34;
 }
 
-/* ===== RIGHT SIDE ===== */
+/* =====================
+ANIMATION
+===================== */
 
-.right-side{
-    width:52%;
-    height:100vh;
-    background:#f6c9d8;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
+/* pause di bawah */
+@keyframes drawLine{
+
+    0%{
+        stroke-dashoffset:1800;
+    }
+
+    35%{
+        stroke-dashoffset:900;
+    }
+
+    /* pause */
+    48%{
+        stroke-dashoffset:900;
+    }
+
+    100%{
+        stroke-dashoffset:0;
+    }
 }
 
-.content{
-    width:80%;
-    max-width:700px;
-    text-align:center;
-    animation:fadeIn 1.8s ease;
-}
-
-.logo{
-    width:450px;
-    max-width:90%;
-    margin-bottom:30px;
-    filter:drop-shadow(0 5px 15px rgba(0,0,0,0.08));
-}
-
-.question{
-    font-size:clamp(30px, 4vw, 64px);
-    font-weight:700;
-    color:#111;
-    margin-bottom:10px;
-}
-
-.slogan{
-    font-family:'Fredoka',sans-serif;
-    font-size:clamp(30px, 3vw, 52px);
-    color:white;
-    font-weight:600;
-    margin-bottom:60px;
-}
-
-.desc{
-    font-size:clamp(18px,1.7vw,32px);
-    line-height:1.6;
-    color:#222;
-    font-weight:400;
-}
-
-/* ===== ANIMATION ===== */
-
-@keyframes fadeIn{
+@keyframes fadeTop{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(-60px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-@keyframes productZoom{
+@keyframes fadeBottom{
     from{
-        transform:scale(1.08);
         opacity:0;
+        transform:translateY(60px);
     }
+
     to{
-        transform:scale(1);
         opacity:1;
+        transform:translateY(0);
     }
 }
 
-/*
-loading bawah ke atas
-ada sedikit jeda di tikungan
-tidak looping
-*/
-@keyframes drawLine{
+/* =====================
+RESPONSIVE
+===================== */
 
-    /* mulai kosong dari bawah */
-    0%{
-        stroke-dashoffset:-1600;
-    }
-
-    /* naik sampai belokan bawah */
-    38%{
-        stroke-dashoffset:-950;
-    }
-
-    /* pause kecil di tikungan */
-    52%{
-        stroke-dashoffset:-950;
-    }
-
-    /* lanjut isi ke atas */
-    100%{
-        stroke-dashoffset:0;
-    }
-}
-    
-/* ===== MOBILE ===== */
-
-@media (max-width:900px){
+@media(max-width:900px){
 
     body{
         overflow:auto;
@@ -219,116 +226,122 @@ tidak looping
         height:auto;
     }
 
-    .left-side{
+    .left,
+    .right{
         width:100%;
+    }
+
+    .left{
         height:45vh;
     }
 
-    .divider-container{
+    .right{
+        min-height:55vh;
+        padding:50px 30px;
+    }
+
+    .divider{
         display:none;
     }
 
-    .right-side{
-        width:100%;
-        min-height:55vh;
-        padding:60px 25px;
-    }
-
-    .content{
-        width:100%;
-    }
-
-    .question{
-        margin-top:10px;
+    .logo{
+        width:90%;
     }
 
     .slogan{
-        margin-bottom:35px;
+        margin-bottom:50px;
     }
 }
 
 </style>
 </head>
 <body>
-<section class="hero">
+
+<div class="hero">
 
     <!-- LEFT -->
-    <div class="left-side">
-
+    <section class="left" id="leftSection">
         <img src="produk.jpg" alt="Produk Deododo">
-
-        <div class="left-overlay"></div>
-
-    </div>
-
-    <!-- DIVIDER -->
-    <div class="divider-container">
-
-        <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
-
-            <!-- base line -->
-            <path class="base-line red"
-            d="M95 0 
-               C95 200 95 520 70 780
-               C60 890 20 960 0 1000"/>
-
-            <path class="base-line yellow"
-            d="M125 0 
-               C125 200 125 520 100 780
-               C90 890 50 960 30 1000"/>
-
-            <path class="base-line blue"
-            d="M155 0 
-               C155 200 155 520 130 780
-               C120 890 80 960 60 1000"/>
-
-            <!-- animated -->
-            <path class="animate-line red"
-            d="M95 0 
-               C95 200 95 520 70 780
-               C60 890 20 960 0 1000"/>
-
-            <path class="animate-line yellow"
-            d="M125 0 
-               C125 200 125 520 100 780
-               C90 890 50 960 30 1000"/>
-
-            <path class="animate-line blue"
-            d="M155 0 
-               C155 200 155 520 130 780
-               C120 890 80 960 60 1000"/>
-
-        </svg>
-
-    </div>
+    </section>
 
     <!-- RIGHT -->
-    <div class="right-side">
+    <section class="right" id="rightSection">
 
         <div class="content">
 
-            <img src="logo.png"
-            class="logo"
-            alt="Logo Deododo">
+            <img src="logo.png" class="logo">
 
-            <h1 class="question">
+            <div class="question">
                 Tiny spray, big difference?
-            </h1>
+            </div>
 
             <div class="slogan">
                 Glow up, smell up!
             </div>
 
-            <p class="desc">
+            <div class="desc">
                 Kunjungi FK-1 untuk mendapatkan
+                <br>
                 deodoran mini ini!
-            </p>
+            </div>
 
         </div>
 
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+
+        <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
+
+            <!-- RED -->
+            <path class="line red"
+            d="
+            M 165 -50
+            L 120 160
+            L 120 790
+            Q 120 900 40 1020
+            " />
+
+            <!-- YELLOW -->
+            <path class="line yellow"
+            d="
+            M 195 -50
+            L 150 160
+            L 150 790
+            Q 150 900 70 1020
+            " />
+
+            <!-- BLUE -->
+            <path class="line blue"
+            d="
+            M 225 -50
+            L 180 160
+            L 180 790
+            Q 180 900 100 1020
+            " />
+
+        </svg>
+
     </div>
 
-</section>
+</div>
+
+<script>
+
+setTimeout(() => {
+
+    document
+    .getElementById("leftSection")
+    .classList.add("show");
+
+    document
+    .getElementById("rightSection")
+    .classList.add("show");
+
+}, 3700);
+
+</script>
 
 </body>
 </html>
