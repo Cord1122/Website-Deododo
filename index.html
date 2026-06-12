@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Deododo</title>
+<title>Deododo - Deodorant Spray Natural</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 
@@ -25,7 +25,7 @@ html{
 }
 
 /* =====================
-DESKTOP VERSION (DEFAULT)
+DESKTOP VERSION (DEFAULT) - JANGAN DISENTUH
 ===================== */
 
 .hero{
@@ -106,6 +106,7 @@ DESKTOP VERSION (DEFAULT)
     line-height:1.35;
 }
 
+/* GARIS PEMBATAS DESKTOP */
 .divider{
     position:absolute;
     left:50%;
@@ -128,7 +129,7 @@ DESKTOP VERSION (DEFAULT)
     stroke-linejoin:round;
     stroke-dasharray:1800;
     stroke-dashoffset:1800;
-    animation:drawLine 2.5s ease forwards;
+    animation:drawLineDesktop 3.8s ease forwards;
 }
 
 .red{
@@ -146,11 +147,19 @@ DESKTOP VERSION (DEFAULT)
     stroke-width:34;
 }
 
-@keyframes drawLine{
-    0%{ stroke-dashoffset:1800; }
-    35%{ stroke-dashoffset:900; }
-    41%{ stroke-dashoffset:900; }
-    100%{ stroke-dashoffset:0; }
+@keyframes drawLineDesktop{
+    0%{
+        stroke-dashoffset:1800;
+    }
+    35%{
+        stroke-dashoffset:900;
+    }
+    48%{
+        stroke-dashoffset:900;
+    }
+    100%{
+        stroke-dashoffset:0;
+    }
 }
 
 @keyframes fadeTop{
@@ -362,94 +371,33 @@ DESKTOP VERSION (DEFAULT)
     white-space:nowrap;
 }
 
-/* =====================
-GAMBAR KHUSUS MOBILE (dari file yang dikirim)
-===================== */
+/* GAMBAR KHUSUS MOBILE */
 .mobile-hero-image{
     display: none;
     width: 100%;
 }
 
-/* =====================
-MOBILE-ONLY ELEMENTS
-===================== */
 .mobile-scent-wrapper{
     display: none;
 }
 
 /* =====================
-RESPONSIVE: TABLET (max-width: 900px)
-===================== */
-@media(max-width: 900px){
-    .product-title{
-        font-size: 52px;
-        top: 70px;
-        left: 20px;
-        width: auto;
-        right: 20px;
-    }
-    .product-desc{
-        font-size: 18px;
-        top: 160px;
-        left: 20px;
-        width: auto;
-        right: 20px;
-    }
-    .product-image{
-        width: 380px;
-        left: 50%;
-        top: 55%;
-    }
-    .jasmine{
-        font-size: 40px;
-        right: 160px;
-        top: 50px;
-    }
-    .rose{
-        font-size: 44px;
-        right: 80px;
-        top: 170px;
-    }
-    .lavender{
-        font-size: 48px;
-        right: 110px;
-        bottom: 50px;
-    }
-    .natural-text{
-        font-size: 40px;
-        white-space: normal;
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-        text-align: center;
-    }
-    .flower-left, .flower-right, .flower-bottom{
-        width: 100px;
-    }
-    .tawas-title{
-        font-size: 80px;
-    }
-}
-
-/* =====================
-RESPONSIVE: MOBILE/HP (max-width: 768px)
-SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
+MOBILE/HP VERSION (max-width: 768px)
+SESUAI DENGAN GAMBAR YANG DIKIRIM - TANPA IMPROVISASI
 ===================== */
 @media(max-width: 768px){
     
-    /* HERO SECTION - vertikal */
+    /* HERO SECTION MOBILE - HIDE DESKTOP LEFT, TAMPILKAN MOBILE IMAGE */
     .hero{
         flex-direction: column;
         height: auto;
-        min-height: 100vh;
+        min-height: auto;
     }
     
-    /* SEMBUNYIKAN gambar desktop di hero */
     .left{
         display: none;
     }
     
-    /* TAMPILKAN gambar mobile di hero */
     .mobile-hero-image{
         display: block;
         width: 100%;
@@ -460,194 +408,265 @@ SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
         width: 100%;
         height: auto;
         display: block;
-        object-fit: cover;
     }
     
     .right{
         width: 100%;
-        min-height: 50vh;
+        min-height: auto;
+        background: #efc3d2;
+        padding: 30px 20px;
     }
-    .divider{
-        display: none;
-    }
+    
     .content{
-        width: 90%;
-        padding: 30px 0;
+        width: 100%;
+        padding: 0;
+        transform: none;
     }
+    
     .logo{
-        width: 60%;
+        width: 55%;
+        max-width: 280px;
         margin-bottom: 20px;
     }
+    
     .question{
-        font-size: 28px;
+        font-size: 26px;
+        margin-bottom: 12px;
     }
+    
     .slogan{
-        font-size: 28px;
-        margin-bottom: 40px;
+        font-size: 26px;
+        margin-bottom: 30px;
     }
+    
     .desc{
-        font-size: 16px;
+        font-size: 15px;
     }
-
-    /* PAGE 2 - product top diubah jadi relative */
+    
+    /* GARIS PEMBATAS TETAP MUNCUL DI MOBILE */
+    .divider{
+        display: block;
+        width: 100%;
+        height: 50px;
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 0;
+    }
+    
+    .divider svg{
+        width: 100%;
+        height: 50px;
+    }
+    
+    /* ANIMASI LOADING MOBILE DARI KIRI KE KANAN */
+    .line{
+        stroke-dasharray: 0 1800;
+        stroke-dashoffset: 0;
+        animation: loadingMobileLeftToRight 2.5s ease-out forwards;
+    }
+    
+    @keyframes loadingMobileLeftToRight {
+        0% {
+            stroke-dasharray: 0 1800;
+        }
+        100% {
+            stroke-dasharray: 1800 0;
+        }
+    }
+    
+    /* PAGE 2 MOBILE - SESUAI GAMBAR */
     .page2{
-        padding: 12px 16px;
+        padding: 16px;
     }
+    
     .product-top{
         height: auto;
-        min-height: 580px;
+        min-height: 500px;
         padding-bottom: 30px;
     }
     
-    /* title & desc jadi relative */
     .product-title{
         position: relative;
         top: 0;
         left: 0;
+        width: 100%;
         text-align: center;
         font-size: 42px;
-        padding-top: 60px;
+        padding-top: 50px;
         margin-bottom: 0;
-        width: 100%;
     }
+    
     .product-desc{
         position: relative;
         top: 0;
         left: 0;
-        font-size: 14px;
-        padding: 16px 20px;
-        margin: 0 auto;
         width: 100%;
+        text-align: center;
+        font-size: 14px;
+        padding: 15px 20px;
+        margin: 0;
     }
     
-    /* gambar produk */
     .product-image{
         position: relative;
         left: auto;
         top: auto;
         transform: none;
-        width: 220px;
-        margin: 20px auto;
+        width: 200px;
+        margin: 15px auto;
         display: block;
     }
     
-    /* SEMUA SCENT (Jasmine, Rose, Lavender) DISEMBUNYIKAN dari posisi absolute */
+    /* SEMBUNYIKAN TEKS AROMA DESKTOP */
     .jasmine, .rose, .lavender{
         display: none;
     }
     
-    /* TAMPILKAN MOBILE VERSION SCENT WRAPPER (TANPA EMOJI) */
+    /* TAMPILKAN AROMA MOBILE DENGAN 3 VARIAN (Jasmine, Rose, Lavender) SESUAI FILE */
     .mobile-scent-wrapper{
         display: flex;
         justify-content: center;
-        gap: 16px;
+        gap: 20px;
         flex-wrap: wrap;
-        margin: 16px 0 20px;
+        margin: 10px 0 20px;
     }
     .mobile-scent{
         font-size: 28px;
         font-weight: 800;
-        padding: 4px 16px;
+        padding: 4px 20px;
         border-radius: 50px;
-        background: rgba(255,255,255,0.3);
+        background: rgba(255,255,255,0.25);
     }
-    .mobile-scent-jasmine{ color: white; }
-    .mobile-scent-rose{ color: #ff5d66; }
-    .mobile-scent-lavender{ color: #9334d9; }
+    .mobile-scent-jasmine{ 
+        color: white; 
+    }
+    .mobile-scent-rose{ 
+        color: #ff5d66; 
+    }
+    .mobile-scent-lavender{ 
+        color: #9334d9; 
+    }
     
-    /* bottom grid jadi column */
+    /* BOTTOM GRID MOBILE - STACK VERTIKAL */
     .bottom-grid{
         flex-direction: column;
+        gap: 16px;
     }
+    
     .natural-box, .tawas-box{
         min-height: 280px;
     }
     
-    /* natural text */
     .natural-text{
         font-size: 28px;
         white-space: normal;
         text-align: center;
-        bottom: 15px;
+        bottom: 20px;
         left: 10px;
         right: 10px;
     }
     
-    /* tawas */
     .tawas-title{
-        font-size: 60px;
-        top: 12px;
-        left: 15px;
+        font-size: 70px;
+        top: 15px;
+        left: 18px;
     }
+    
     .tawas-image{
-        width: 65%;
-        max-width: 150px;
+        width: 60%;
+        max-width: 140px;
     }
     
-    /* dekorasi bunga */
     .flower-left, .flower-right, .flower-bottom{
-        width: 70px;
-    }
-    .curve-line{
-        width: 300px;
-        left: 100px;
-        top: auto;
-        bottom: 20px;
+        width: 80px;
     }
     
-    /* corner stripes lebih kecil */
+    .curve-line{
+        width: 280px;
+        left: auto;
+        right: 10px;
+        top: auto;
+        bottom: 15px;
+    }
+    
     .corner-stripes{
-        width: 200px;
+        width: 220px;
     }
     .stripe{
-        height: 30px;
+        height: 32px;
     }
 }
 
-/* =====================
-MOBILE EKSTRA KECIL (max-width: 480px)
-===================== */
+/* TABLET (600px - 768px) adjustment */
+@media(max-width: 768px) and (min-width: 600px){
+    .product-title{
+        font-size: 52px;
+        padding-top: 60px;
+    }
+    .product-desc{
+        font-size: 16px;
+    }
+    .product-image{
+        width: 260px;
+    }
+    .mobile-scent{
+        font-size: 32px;
+    }
+    .natural-text{
+        font-size: 32px;
+    }
+}
+
+/* HP KECIL (max-width: 480px) */
 @media(max-width: 480px){
     .product-title{
         font-size: 32px;
-        padding-top: 45px;
+        padding-top: 40px;
     }
     .product-desc{
         font-size: 12px;
         padding: 12px 16px;
     }
     .product-image{
-        width: 170px;
+        width: 160px;
         margin: 10px auto;
     }
     .mobile-scent{
         font-size: 20px;
-        padding: 2px 12px;
+        padding: 4px 14px;
     }
     .mobile-scent-wrapper{
-        gap: 8px;
+        gap: 12px;
     }
     .natural-text{
         font-size: 20px;
     }
     .tawas-title{
-        font-size: 44px;
+        font-size: 48px;
     }
     .flower-left, .flower-right, .flower-bottom{
-        width: 50px;
-    }
-    .right{
-        min-height: auto;
+        width: 55px;
     }
     .question{
-        font-size: 24px;
+        font-size: 22px;
     }
     .slogan{
-        font-size: 24px;
-        margin-bottom: 30px;
+        font-size: 22px;
+        margin-bottom: 20px;
     }
     .desc{
-        font-size: 14px;
+        font-size: 13px;
+    }
+    .logo{
+        width: 65%;
+    }
+    .divider{
+        height: 40px;
+    }
+    .divider svg{
+        height: 40px;
     }
 }
 
@@ -657,19 +676,19 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 
 <div class="hero">
 
-    <!-- GAMBAR KHUSUS MOBILE (HANYA TAMPIL DI HP) -->
+    <!-- GAMBAR KHUSUS MOBILE (sesuai file yang dikirim) -->
     <div class="mobile-hero-image">
         <img src="produk.jpg" alt="Deododo Mobile Banner">
     </div>
 
-    <!-- GAMBAR DESKTOP (HANYA TAMPIL DI KOMPUTER) -->
+    <!-- GAMBAR DESKTOP (JANGAN DISENTUH) -->
     <section class="left" id="leftSection">
         <img src="produk.jpg" alt="Produk Deododo">
     </section>
 
     <section class="right" id="rightSection">
         <div class="content">
-            <img src="logo.png" class="logo">
+            <img src="logo.png" class="logo" alt="Deododo Logo">
             <div class="question">
                 Tiny spray, big difference?
             </div>
@@ -684,6 +703,7 @@ MOBILE EKSTRA KECIL (max-width: 480px)
         </div>
     </section>
 
+    <!-- GARIS PEMBATAS -->
     <div class="divider">
         <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
             <path class="line red"
@@ -722,14 +742,14 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 
         <img src="produk-page2.png"
         class="product-image"
-        alt="Produk">
+        alt="Deododo Product">
 
-        <!-- DESKTOP VERSION: posisi absolute -->
+        <!-- AROMA DESKTOP -->
         <div class="jasmine">Jasmine</div>
         <div class="rose">Rose</div>
         <div class="lavender">Lavender</div>
 
-        <!-- MOBILE VERSION: tampil hanya di HP (TANPA EMOJI) -->
+        <!-- AROMA MOBILE - SESUAI FILE GAMBAR (Jasmine, Rose, Lavender) -->
         <div class="mobile-scent-wrapper">
             <span class="mobile-scent mobile-scent-jasmine">Jasmine</span>
             <span class="mobile-scent mobile-scent-rose">Rose</span>
@@ -741,37 +761,24 @@ MOBILE EKSTRA KECIL (max-width: 480px)
     <div class="bottom-grid">
 
         <div class="natural-box">
-
-            <img src="rose.png"
-            class="flower-left">
-
-            <img src="jasmine.png"
-            class="flower-right">
-
-            <img src="lavender.png"
-            class="flower-bottom">
-
+            <img src="rose.png" class="flower-left" alt="Rose flower">
+            <img src="jasmine.png" class="flower-right" alt="Jasmine flower">
+            <img src="lavender.png" class="flower-bottom" alt="Lavender flower">
             <div class="curve-line">
                 <svg viewBox="0 0 600 400">
                     <path d="M120 0 C20 120 250 120 180 180 C120 230 250 250 320 310 C420 390 450 450 520 520"/>
                 </svg>
             </div>
-
             <div class="natural-text">
                 MENGGUNAKAN BAHAN ALAMI
             </div>
-
         </div>
 
         <div class="tawas-box">
-
             <div class="tawas-title">
                 TAWAS
             </div>
-
-            <img src="tawas.png"
-            class="tawas-image">
-
+            <img src="tawas.png" class="tawas-image" alt="Tawas crystal">
         </div>
 
     </div>
@@ -779,13 +786,13 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 </section>
 
 <script>
-
+// Animasi untuk desktop (JANGAN DISENTUH)
 setTimeout(() => {
     const leftElem = document.getElementById("leftSection");
     if(leftElem) leftElem.classList.add("show");
-    document.getElementById("rightSection").classList.add("show");
-}, 2300);
-
+    const rightElem = document.getElementById("rightSection");
+    if(rightElem) rightElem.classList.add("show");
+}, 3700);
 </script>
 
 </body>
