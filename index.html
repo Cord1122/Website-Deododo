@@ -374,7 +374,6 @@ PAGE 2 DESKTOP
 
 /* =====================
 MOBILE VERSION (LAYAR ≤ 768px)
-YANG DIPERBAIKI SESUAI PERMINTAAN
 ===================== */
 
 @media(max-width: 768px){
@@ -391,116 +390,14 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         background: #fef6f0;
     }
     
-    /* ===== MOBILE PAGE 1 (HERO) ===== */
-    .mobile-hero {
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        background: white;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-    
-    /* Gambar produk di atas */
-    .mobile-product-image {
-        width: 100%;
-        background: #f3e1e8;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px 20px;
-    }
-    
-    .mobile-product-image img {
-        width: 80%;
-        max-width: 280px;
-        height: auto;
-        object-fit: contain;
-        border-radius: 20px;
-    }
-    
-    /* GARIS PEMBATAS MOBILE (TANPA ANIMASI) */
-    .mobile-divider {
-        width: 100%;
-        padding: 0 20px;
-        margin: 10px 0;
-    }
-    
-    .mobile-divider svg {
-        width: 100%;
-        height: 40px;
-    }
-    
-    .divider-line-static {
-        fill: none;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-    
-    .divider-red {
-        stroke: #ff3131;
-        stroke-width: 8;
-    }
-    .divider-yellow {
-        stroke: #f5d34f;
-        stroke-width: 8;
-    }
-    .divider-blue {
-        stroke: #4595d4;
-        stroke-width: 8;
-    }
-    
-    /* Konten teks di bawah */
-    .mobile-content {
-        background: #efc3d2;
-        flex: 1;
-        padding: 40px 24px 60px;
-        text-align: center;
-        border-radius: 30px 30px 0 0;
-    }
-    
-    .mobile-logo {
-        width: 60%;
-        max-width: 250px;
-        margin-bottom: 24px;
-    }
-    
-    .mobile-question {
-        font-size: 28px;
-        font-weight: 800;
-        color: black;
-        line-height: 1.2;
-        margin-bottom: 12px;
-    }
-    
-    .mobile-slogan {
-        font-size: 28px;
-        font-weight: 800;
-        color: white;
-        margin-bottom: 30px;
-    }
-    
-    .mobile-desc {
-        font-size: 16px;
-        font-weight: 600;
-        color: #1f1a1c;
-        background: rgba(255,250,240,0.5);
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 60px;
-        line-height: 1.4;
-    }
-    
-    /* ===== MOBILE PAGE 2 (PRODUK INFO) SESUAI GAMBAR ===== */
-    .mobile-page2 {
+    .mobile-page {
         max-width: 500px;
         margin: 0 auto;
         background: #fef6f0;
+        min-height: 100vh;
         padding: 24px 20px 40px;
     }
     
-    /* Corner stripes kiri atas */
     .corner-stripes-mobile {
         position: relative;
         margin-bottom: 20px;
@@ -526,17 +423,15 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         margin-top: 4px;
     }
     
-    /* Judul utama */
     .main-title-mobile {
         font-size: 48px;
         font-weight: 800;
         color: #5d4c52;
         text-align: center;
-        margin: 10px 0 16px;
+        margin: 20px 0 16px;
         letter-spacing: -0.5px;
     }
     
-    /* Deskripsi */
     .description-mobile {
         font-size: 15px;
         font-weight: 500;
@@ -549,7 +444,6 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         margin-bottom: 32px;
     }
     
-    /* 3 RASA */
     .flavors-container-mobile {
         display: flex;
         justify-content: center;
@@ -587,7 +481,16 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         border-radius: 4px;
     }
     
-    /* Garis pemisah warna-warni */
+    .product-bottle-mobile {
+        display: flex;
+        justify-content: center;
+        margin: 16px 0 8px;
+    }
+    .bottle-icon-mobile {
+        width: 120px;
+        opacity: 0.7;
+    }
+    
     .divider-line-mobile {
         width: 80px;
         height: 4px;
@@ -596,7 +499,6 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         border-radius: 4px;
     }
     
-    /* Kotak MENGGUNAKAN BAHAN ALAMI */
     .natural-card-mobile {
         background: #efc9bf;
         border-radius: 32px;
@@ -604,7 +506,7 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         margin-bottom: 20px;
         position: relative;
         overflow: hidden;
-        min-height: 180px;
+        min-height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -621,10 +523,9 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         position: relative;
     }
     
-    /* Dekorasi bunga */
     .flower-deco-mobile {
         position: absolute;
-        opacity: 0.4;
+        opacity: 0.5;
         pointer-events: none;
     }
     
@@ -644,7 +545,6 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
         width: 75px;
     }
     
-    /* Kotak TAWAS */
     .tawas-card-mobile {
         background: #efc9bf;
         border-radius: 32px;
@@ -672,56 +572,52 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
     .spacer-mobile {
         height: 20px;
     }
-    
-    /* Responsive kecil */
-    @media (max-width: 480px) {
-        .mobile-content {
-            padding: 30px 20px 50px;
-        }
-        .mobile-question, .mobile-slogan {
-            font-size: 24px;
-        }
-        .mobile-desc {
-            font-size: 14px;
-        }
-        .main-title-mobile {
-            font-size: 42px;
-        }
-        .flavor-name-mobile {
-            font-size: 24px;
-        }
-        .flavors-container-mobile {
-            gap: 16px;
-        }
-        .natural-text-mobile {
-            font-size: 22px;
-        }
-        .tawas-title-mobile {
-            font-size: 44px;
-        }
-        .tawas-image-mobile {
-            width: 85px;
-        }
-        .description-mobile {
-            font-size: 13px;
-            padding: 14px;
-        }
+}
+
+@media(max-width: 480px){
+    .mobile-page {
+        padding: 16px 16px 32px;
     }
-    
-    @media (max-width: 380px) {
-        .tawas-card-mobile {
-            flex-direction: column;
-            text-align: center;
-        }
-        .flavor-name-mobile {
-            font-size: 20px;
-        }
-        .main-title-mobile {
-            font-size: 36px;
-        }
-        .natural-text-mobile {
-            font-size: 18px;
-        }
+    .main-title-mobile {
+        font-size: 42px;
+    }
+    .flavor-name-mobile {
+        font-size: 24px;
+    }
+    .flavors-container-mobile {
+        gap: 16px;
+    }
+    .natural-text-mobile {
+        font-size: 22px;
+    }
+    .tawas-title-mobile {
+        font-size: 44px;
+    }
+    .tawas-image-mobile {
+        width: 85px;
+    }
+    .description-mobile {
+        font-size: 13px;
+        padding: 14px;
+    }
+    .bottle-icon-mobile {
+        width: 100px;
+    }
+}
+
+@media(max-width: 380px){
+    .tawas-card-mobile {
+        flex-direction: column;
+        text-align: center;
+    }
+    .flavor-name-mobile {
+        font-size: 20px;
+    }
+    .main-title-mobile {
+        font-size: 36px;
+    }
+    .natural-text-mobile {
+        font-size: 18px;
     }
 }
 
@@ -729,7 +625,7 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
 </head>
 <body>
 
-<!-- ===================== DESKTOP VERSION (TIDAK BERUBAH) ===================== -->
+<!-- ===================== DESKTOP VERSION ===================== -->
 <div class="desktop-only">
     <div class="hero">
         <section class="left" id="leftSection">
@@ -814,66 +710,25 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
     </section>
 </div>
 
-<!-- ===================== MOBILE VERSION (DIPERBAIKI) ===================== -->
+<!-- ===================== MOBILE VERSION ===================== -->
 <div class="mobile-only">
-    
-    <!-- MOBILE PAGE 1 (HERO) -->
-    <div class="mobile-hero">
+    <div class="mobile-page">
         
-        <!-- GAMBAR PRODUK DI ATAS -->
-        <div class="mobile-product-image">
-            <img src="produk.jpg" alt="Deododo Produk">
-        </div>
-
-        <!-- GARIS PEMBATAS 3 WARNA (TANPA ANIMASI) -->
-        <div class="mobile-divider">
-            <svg viewBox="0 0 300 30" preserveAspectRatio="none">
-                <path class="divider-line-static divider-red" 
-                      d="M 0 15 L 300 15" />
-                <path class="divider-line-static divider-yellow" 
-                      d="M 0 20 L 300 20" />
-                <path class="divider-line-static divider-blue" 
-                      d="M 0 25 L 300 25" />
-            </svg>
-        </div>
-
-        <!-- KONTEN TEKS DI BAWAH (KALIMAT TERAKHIR TERLIHAT) -->
-        <div class="mobile-content">
-            <img src="logo.png" class="mobile-logo" alt="Deododo Logo">
-            <div class="mobile-question">
-                Tiny spray, big difference?
-            </div>
-            <div class="mobile-slogan">
-                Glow up, smell up!
-            </div>
-            <div class="mobile-desc">
-                Kunjungi FK-1 untuk mendapatkan<br>deodoran mini ini!
-            </div>
-        </div>
-    </div>
-
-    <!-- MOBILE PAGE 2 (PRODUK INFO) SESUAI GAMBAR -->
-    <div class="mobile-page2">
-        
-        <!-- Corner stripes kiri atas -->
         <div class="corner-stripes-mobile">
             <div class="stripe-mobile stripe-red-mobile"></div>
             <div class="stripe-mobile stripe-yellow-mobile"></div>
             <div class="stripe-mobile stripe-blue-mobile"></div>
         </div>
 
-        <!-- Judul Utama -->
         <div class="main-title-mobile">
             Deododo
         </div>
 
-        <!-- Deskripsi -->
         <div class="description-mobile">
             Deododo adalah deodoran spray yang menggunakan tawas sebagai bahan utamanya.<br>
             Dengan 3 rasa yang bisa dipilih dari Jasmine hingga Lavender pasti akan menemani anda sepanjang hari.
         </div>
 
-        <!-- 3 RASA (Jasmine, Rose, Lavender) -->
         <div class="flavors-container-mobile">
             <div class="flavor-item-mobile">
                 <div class="flavor-name-mobile flavor-jasmine-mobile">Jasmine</div>
@@ -889,10 +744,17 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
             </div>
         </div>
 
-        <!-- Garis pemisah -->
+        <div class="product-bottle-mobile">
+            <svg class="bottle-icon-mobile" viewBox="0 0 100 160" fill="none">
+                <rect x="30" y="30" width="40" height="90" rx="12" fill="#eab9c9" stroke="#b35d7c" stroke-width="2"/>
+                <path d="M35 115 L65 115 L60 140 L40 140 Z" fill="#cea2b2"/>
+                <circle cx="50" cy="55" r="10" fill="#ffe0e7"/>
+                <text x="50" y="85" text-anchor="middle" fill="#6e3b4d" font-size="10" font-weight="bold">spray</text>
+            </svg>
+        </div>
+
         <div class="divider-line-mobile"></div>
 
-        <!-- Kotak MENGGUNAKAN BAHAN ALAMI -->
         <div class="natural-card-mobile">
             <svg class="flower-deco-mobile flower-deco-1-mobile" viewBox="0 0 80 80">
                 <circle cx="40" cy="40" r="30" fill="#ffb7c5" opacity="0.7"/>
@@ -914,7 +776,6 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
             </div>
         </div>
 
-        <!-- Kotak TAWAS -->
         <div class="tawas-card-mobile">
             <div class="tawas-title-mobile">
                 TAWAS
@@ -933,8 +794,12 @@ YANG DIPERBAIKI SESUAI PERMINTAAN
 </div>
 
 <script>
-// Animasi untuk desktop (TIDAK BERUBAH)
+// Animasi untuk desktop:
+// 1. Garis pembatas bergerak dulu (2.8 detik)
+// 2. Setelah selesai, baru konten kiri, kanan, dan page2 muncul
+
 setTimeout(() => {
+    // Munculkan konten kiri dan kanan
     const leftElem = document.getElementById("leftSection");
     const rightElem = document.getElementById("rightSection");
     const page2Elem = document.getElementById("page2Section");
@@ -943,7 +808,7 @@ setTimeout(() => {
     if(rightElem) rightElem.classList.add("show");
     if(page2Elem) page2Elem.classList.add("show");
     
-}, 2800);
+}, 2800); // 2800ms = 2.8 detik (sesuai durasi animasi garis)
 </script>
 
 </body>
