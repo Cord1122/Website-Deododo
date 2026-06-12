@@ -106,10 +106,6 @@ DESKTOP VERSION (DEFAULT)
     line-height:1.35;
 }
 
-/* =====================
-GARIS PEMBATAS (DESKTOP)
-TIDAK BERUBAH, TETAP SEPERTI KODE AWAL
-===================== */
 .divider{
     position:absolute;
     left:50%;
@@ -132,7 +128,7 @@ TIDAK BERUBAH, TETAP SEPERTI KODE AWAL
     stroke-linejoin:round;
     stroke-dasharray:1800;
     stroke-dashoffset:1800;
-    animation:drawLineDesktop 3.8s ease forwards;
+    animation:drawLine 2.5s ease forwards;
 }
 
 .red{
@@ -150,20 +146,11 @@ TIDAK BERUBAH, TETAP SEPERTI KODE AWAL
     stroke-width:34;
 }
 
-/* ANIMASI DESKTOP (TETAP SEPERTI SEMULA) */
-@keyframes drawLineDesktop{
-    0%{
-        stroke-dashoffset:1800;
-    }
-    35%{
-        stroke-dashoffset:900;
-    }
-    48%{
-        stroke-dashoffset:900;
-    }
-    100%{
-        stroke-dashoffset:0;
-    }
+@keyframes drawLine{
+    0%{ stroke-dashoffset:1800; }
+    35%{ stroke-dashoffset:900; }
+    41%{ stroke-dashoffset:900; }
+    100%{ stroke-dashoffset:0; }
 }
 
 @keyframes fadeTop{
@@ -376,13 +363,16 @@ TIDAK BERUBAH, TETAP SEPERTI KODE AWAL
 }
 
 /* =====================
-GAMBAR KHUSUS MOBILE
+GAMBAR KHUSUS MOBILE (dari file yang dikirim)
 ===================== */
 .mobile-hero-image{
     display: none;
     width: 100%;
 }
 
+/* =====================
+MOBILE-ONLY ELEMENTS
+===================== */
 .mobile-scent-wrapper{
     display: none;
 }
@@ -443,20 +433,23 @@ RESPONSIVE: TABLET (max-width: 900px)
 
 /* =====================
 RESPONSIVE: MOBILE/HP (max-width: 768px)
-HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
+SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
 ===================== */
 @media(max-width: 768px){
     
+    /* HERO SECTION - vertikal */
     .hero{
         flex-direction: column;
         height: auto;
         min-height: 100vh;
     }
     
+    /* SEMBUNYIKAN gambar desktop di hero */
     .left{
         display: none;
     }
     
+    /* TAMPILKAN gambar mobile di hero */
     .mobile-hero-image{
         display: block;
         width: 100%;
@@ -467,46 +460,16 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         width: 100%;
         height: auto;
         display: block;
+        object-fit: cover;
     }
     
     .right{
         width: 100%;
         min-height: 50vh;
     }
-    
-    /* GARIS PEMBATAS TETAP MUNCUL DI HP DENGAN ANIMASI BARU */
     .divider{
-        display: block;
-        width: 100%;
-        height: 60px;
-        position: relative;
-        left: auto;
-        top: auto;
-        transform: none;
-        margin: 0;
+        display: none;
     }
-    
-    .divider svg{
-        width: 100%;
-        height: 60px;
-    }
-    
-    /* ANIMASI KHUSUS HP: LOADING DARI KIRI KE KANAN (BERSAMAAN) */
-    .line{
-        stroke-dasharray: 0 1800;
-        stroke-dashoffset: 0;
-        animation: loadingMobileLeftToRight 2.5s ease-out forwards;
-    }
-    
-    @keyframes loadingMobileLeftToRight {
-        0% {
-            stroke-dasharray: 0 1800;
-        }
-        100% {
-            stroke-dasharray: 1800 0;
-        }
-    }
-    
     .content{
         width: 90%;
         padding: 30px 0;
@@ -526,6 +489,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         font-size: 16px;
     }
 
+    /* PAGE 2 - product top diubah jadi relative */
     .page2{
         padding: 12px 16px;
     }
@@ -535,6 +499,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         padding-bottom: 30px;
     }
     
+    /* title & desc jadi relative */
     .product-title{
         position: relative;
         top: 0;
@@ -555,6 +520,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         width: 100%;
     }
     
+    /* gambar produk */
     .product-image{
         position: relative;
         left: auto;
@@ -565,10 +531,12 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         display: block;
     }
     
+    /* SEMUA SCENT (Jasmine, Rose, Lavender) DISEMBUNYIKAN dari posisi absolute */
     .jasmine, .rose, .lavender{
         display: none;
     }
     
+    /* TAMPILKAN MOBILE VERSION SCENT WRAPPER (TANPA EMOJI) */
     .mobile-scent-wrapper{
         display: flex;
         justify-content: center;
@@ -587,6 +555,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
     .mobile-scent-rose{ color: #ff5d66; }
     .mobile-scent-lavender{ color: #9334d9; }
     
+    /* bottom grid jadi column */
     .bottom-grid{
         flex-direction: column;
     }
@@ -594,6 +563,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         min-height: 280px;
     }
     
+    /* natural text */
     .natural-text{
         font-size: 28px;
         white-space: normal;
@@ -603,6 +573,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         right: 10px;
     }
     
+    /* tawas */
     .tawas-title{
         font-size: 60px;
         top: 12px;
@@ -613,6 +584,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         max-width: 150px;
     }
     
+    /* dekorasi bunga */
     .flower-left, .flower-right, .flower-bottom{
         width: 70px;
     }
@@ -623,6 +595,7 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         bottom: 20px;
     }
     
+    /* corner stripes lebih kecil */
     .corner-stripes{
         width: 200px;
     }
@@ -631,6 +604,9 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
     }
 }
 
+/* =====================
+MOBILE EKSTRA KECIL (max-width: 480px)
+===================== */
 @media(max-width: 480px){
     .product-title{
         font-size: 32px;
@@ -673,9 +649,6 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
     .desc{
         font-size: 14px;
     }
-    .divider svg{
-        height: 40px;
-    }
 }
 
 </style>
@@ -684,12 +657,12 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
 
 <div class="hero">
 
-    <!-- GAMBAR KHUSUS MOBILE -->
+    <!-- GAMBAR KHUSUS MOBILE (HANYA TAMPIL DI HP) -->
     <div class="mobile-hero-image">
         <img src="produk.jpg" alt="Deododo Mobile Banner">
     </div>
 
-    <!-- GAMBAR DESKTOP -->
+    <!-- GAMBAR DESKTOP (HANYA TAMPIL DI KOMPUTER) -->
     <section class="left" id="leftSection">
         <img src="produk.jpg" alt="Produk Deododo">
     </section>
@@ -711,7 +684,6 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         </div>
     </section>
 
-    <!-- GARIS PEMBATAS -->
     <div class="divider">
         <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
             <path class="line red"
@@ -752,10 +724,12 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
         class="product-image"
         alt="Produk">
 
+        <!-- DESKTOP VERSION: posisi absolute -->
         <div class="jasmine">Jasmine</div>
         <div class="rose">Rose</div>
         <div class="lavender">Lavender</div>
 
+        <!-- MOBILE VERSION: tampil hanya di HP (TANPA EMOJI) -->
         <div class="mobile-scent-wrapper">
             <span class="mobile-scent mobile-scent-jasmine">Jasmine</span>
             <span class="mobile-scent mobile-scent-rose">Rose</span>
@@ -767,24 +741,37 @@ HANYA DI SINI PERUBAHAN ANIMASI DILAKUKAN
     <div class="bottom-grid">
 
         <div class="natural-box">
-            <img src="rose.png" class="flower-left">
-            <img src="jasmine.png" class="flower-right">
-            <img src="lavender.png" class="flower-bottom">
+
+            <img src="rose.png"
+            class="flower-left">
+
+            <img src="jasmine.png"
+            class="flower-right">
+
+            <img src="lavender.png"
+            class="flower-bottom">
+
             <div class="curve-line">
                 <svg viewBox="0 0 600 400">
                     <path d="M120 0 C20 120 250 120 180 180 C120 230 250 250 320 310 C420 390 450 450 520 520"/>
                 </svg>
             </div>
+
             <div class="natural-text">
                 MENGGUNAKAN BAHAN ALAMI
             </div>
+
         </div>
 
         <div class="tawas-box">
+
             <div class="tawas-title">
                 TAWAS
             </div>
-            <img src="tawas.png" class="tawas-image">
+
+            <img src="tawas.png"
+            class="tawas-image">
+
         </div>
 
     </div>
@@ -797,7 +784,7 @@ setTimeout(() => {
     const leftElem = document.getElementById("leftSection");
     if(leftElem) leftElem.classList.add("show");
     document.getElementById("rightSection").classList.add("show");
-}, 3700);
+}, 2300);
 
 </script>
 
