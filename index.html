@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Deododo</title>
 
@@ -25,11 +25,15 @@ html,body{
     background:white;
 }
 
-/* =======================
-MAIN CONTAINER
-======================= */
+body{
+    position:relative;
+}
 
-.hero{
+/* ===========================
+LAYOUT
+=========================== */
+
+.container{
     width:100%;
     height:100vh;
     display:flex;
@@ -38,95 +42,100 @@ MAIN CONTAINER
     background:white;
 }
 
-/* =======================
-LEFT SIDE
-======================= */
+/* ===========================
+LEFT
+=========================== */
 
 .left{
     width:50%;
     height:100%;
+    background:#fff;
     position:relative;
     overflow:hidden;
+
     opacity:0;
     transform:translateY(-70px);
 }
 
 .left.show{
-    animation:leftReveal 1.2s ease forwards;
+    animation:fadeTop 1.2s ease forwards;
 }
 
-.left img{
+/* gambar canva */
+.left-image{
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-/* =======================
-RIGHT SIDE
-======================= */
+/* ===========================
+RIGHT
+=========================== */
 
 .right{
     width:50%;
     height:100%;
-    background:#f5c6d5;
+    background:#f7c6d8;
+    position:relative;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    position:relative;
 
     opacity:0;
     transform:translateY(70px);
 }
 
 .right.show{
-    animation:rightReveal 1.2s ease forwards;
+    animation:fadeBottom 1.2s ease forwards;
 }
 
 .content{
     width:80%;
     text-align:center;
-    margin-top:-20px;
 }
 
 .logo{
-    width:78%;
-    max-width:650px;
+    width:72%;
+    max-width:520px;
     margin-bottom:50px;
 }
 
 .question{
-    font-size:clamp(28px,3vw,62px);
+    font-size:clamp(30px,3vw,62px);
     font-weight:800;
+    line-height:1.2;
+    margin-bottom:20px;
     color:black;
-    margin-bottom:15px;
 }
 
 .slogan{
-    font-size:clamp(26px,2.8vw,58px);
+    font-size:clamp(30px,3vw,60px);
     font-weight:800;
     color:white;
-    margin-bottom:130px;
+    margin-bottom:140px;
 }
 
 .desc{
-    font-size:clamp(20px,1.8vw,38px);
-    font-weight:600;
-    line-height:1.4;
-    color:black;
+    font-size:clamp(20px,1.7vw,36px);
+    font-weight:700;
+    line-height:1.45;
 }
 
-/* =======================
-DIVIDER OVERLAY
-======================= */
+/* ===========================
+DIVIDER
+=========================== */
 
 .divider{
     position:absolute;
     left:50%;
     top:0;
     transform:translateX(-50%);
-    width:260px;
-    height:100%;
-    z-index:999;
+    width:300px;
+    height:110vh;
+    z-index:9999;
     pointer-events:none;
 }
 
@@ -135,24 +144,18 @@ DIVIDER OVERLAY
     height:100%;
 }
 
-/* garis dasar transparan */
-.base{
-    fill:none;
-    stroke-width:36;
-    opacity:0;
-}
+/* garis */
 
-/* garis animasi */
 .line{
     fill:none;
     stroke-width:28;
     stroke-linecap:round;
     stroke-linejoin:round;
 
-    stroke-dasharray:1800;
-    stroke-dashoffset:-1800;
+    stroke-dasharray:1900;
+    stroke-dashoffset:-1900;
 
-    animation:drawLine 4.2s ease forwards;
+    animation:drawLine 4s ease forwards;
 }
 
 .red{
@@ -167,34 +170,40 @@ DIVIDER OVERLAY
     stroke:#4393d0;
 }
 
-/* =======================
-ANIMATIONS
-======================= */
+/* ===========================
+ANIMATION
+=========================== */
 
-/* garis bawah ke atas + pause */
+/*
+garis loading:
+bawah ke atas
+pause di tikungan
+lalu lanjut
+*/
+
 @keyframes drawLine{
 
     0%{
-        stroke-dashoffset:-1800;
+        stroke-dashoffset:-1900;
     }
 
     /* sampai belokan */
-    40%{
-        stroke-dashoffset:-1050;
+    42%{
+        stroke-dashoffset:-1080;
     }
 
-    /* pause kecil */
-    54%{
-        stroke-dashoffset:-1050;
+    /* pause */
+    58%{
+        stroke-dashoffset:-1080;
     }
 
-    /* lanjut */
+    /* selesai */
     100%{
         stroke-dashoffset:0;
     }
 }
 
-@keyframes leftReveal{
+@keyframes fadeTop{
     from{
         opacity:0;
         transform:translateY(-70px);
@@ -205,7 +214,7 @@ ANIMATIONS
     }
 }
 
-@keyframes rightReveal{
+@keyframes fadeBottom{
     from{
         opacity:0;
         transform:translateY(70px);
@@ -216,9 +225,9 @@ ANIMATIONS
     }
 }
 
-/* =======================
-MOBILE
-======================= */
+/* ===========================
+RESPONSIVE
+=========================== */
 
 @media(max-width:900px){
 
@@ -226,62 +235,51 @@ MOBILE
         overflow:auto;
     }
 
-    .hero{
+    .container{
         flex-direction:column;
         height:auto;
     }
 
     .left{
         width:100%;
-        height:45vh;
+        height:50vh;
     }
 
     .right{
         width:100%;
-        min-height:55vh;
-        padding:50px 25px;
+        min-height:50vh;
+        padding:50px 20px;
     }
 
     .divider{
         display:none;
     }
 
-    .content{
-        width:100%;
-    }
-
     .logo{
-        width:90%;
+        width:85%;
         margin-bottom:30px;
     }
 
-    .question{
-        margin-bottom:8px;
-    }
-
     .slogan{
-        margin-bottom:50px;
-    }
-
-    .desc{
-        font-size:22px;
+        margin-bottom:60px;
     }
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="hero">
+<div class="container">
 
     <!-- LEFT -->
-    <section class="left" id="leftSection">
-        <img src="produk.jpg" alt="Produk Deododo">
+    <section class="left" id="leftPanel">
+        <img src="produk.jpg"
+        class="left-image"
+        alt="Produk Deododo">
     </section>
 
     <!-- RIGHT -->
-    <section class="right" id="rightSection">
+    <section class="right" id="rightPanel">
 
         <div class="content">
 
@@ -307,63 +305,66 @@ MOBILE
 
     </section>
 
-<!-- DIVIDER -->
-<div class="divider">
+    <!-- DIVIDER -->
+    <div class="divider">
 
-<svg viewBox="0 0 260 1000" preserveAspectRatio="none">
+        <svg viewBox="0 0 300 1100" preserveAspectRatio="none">
 
-    <!-- RED -->
-    <path class="line red"
-    d="
-    M 160 -20
-    L 95 170
-    L 55 790
-    Q 52 900 0 1000
-    "/>
+            <!-- RED -->
+            <path
+            class="line red"
+            d="
+            M 185 -50
+            L 125 160
+            L 110 900
+            Q 110 1000 50 1120
+            " />
 
-    <!-- YELLOW -->
-    <path class="line yellow"
-    d="
-    M 190 -20
-    L 125 170
-    L 85 790
-    Q 82 900 30 1000
-    "/>
+            <!-- YELLOW -->
+            <path
+            class="line yellow"
+            d="
+            M 220 -50
+            L 160 160
+            L 145 900
+            Q 145 1000 85 1120
+            " />
 
-    <!-- BLUE -->
-    <path class="line blue"
-    d="
-    M 220 -20
-    L 155 170
-    L 115 790
-    Q 112 900 60 1000
-    "/>
+            <!-- BLUE -->
+            <path
+            class="line blue"
+            d="
+            M 255 -50
+            L 195 160
+            L 180 900
+            Q 180 1000 120 1120
+            " />
 
-</svg>
+        </svg>
 
-</div>
+    </div>
 
 </div>
 
 <script>
 
 /*
-setelah garis selesai
-baru kiri & kanan muncul
+setelah divider selesai
+baru panel muncul
 bersamaan
 */
 
-setTimeout(() => {
+setTimeout(()=>{
 
     document
-    .getElementById("leftSection")
+    .getElementById("leftPanel")
     .classList.add("show");
 
     document
-    .getElementById("rightSection")
+    .getElementById("rightPanel")
     .classList.add("show");
 
-}, 4100);
+},4000);
 
 </script>
 
