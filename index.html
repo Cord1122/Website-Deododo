@@ -6,408 +6,42 @@
 <title>Deododo - Deodorant Alami</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    overflow-x:hidden;
-    overflow-y:auto;
-    background:white;
-    font-family:'Poppins',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-/* =====================
-DESKTOP VERSION (LAYAR > 768px)
-===================== */
-
-.desktop-only {
-    display: block;
-}
-
-.mobile-only {
-    display: none;
-}
-
-.hero{
-    width:100%;
-    height:100vh;
-    display:flex;
-    position:relative;
-    overflow:hidden;
-    background:white;
-}
-
-.left{
-    width:50%;
-    height:100vh;
-    background:white;
-    overflow:hidden;
-    opacity:0;
-    transform:translateY(-60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.left.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.left img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.right{
-    width:50%;
-    height:100vh;
-    background:#efc3d2;
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    opacity:0;
-    transform:translateY(60px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.right.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.content{
-    width:80%;
-    text-align:center;
-    transform:translateY(-20px);
-}
-
-.logo{
-    width:75%;
-    max-width:520px;
-    margin-bottom:40px;
-}
-
-.question{
-    font-size:clamp(36px,3vw,68px);
-    font-weight:800;
-    color:black;
-    line-height:1.15;
-    margin-bottom:18px;
-}
-
-.slogan{
-    font-size:clamp(34px,2.5vw,56px);
-    font-weight:800;
-    color:white;
-    margin-bottom:120px;
-}
-
-.desc{
-    font-size:clamp(20px,1.8vw,36px);
-    font-weight:700;
-    line-height:1.35;
-}
-
-/* =====================
-GARIS PEMBATAS DI TENGAH (KIRI & KANAN)
-ANIMASI: GARIS MUNCUL DULU, BARU KONTEN
-===================== */
-.divider{
-    position:absolute;
-    left:50%;
-    top:0;
-    width:240px;
-    height:100%;
-    transform:translateX(-50%);
-    z-index:200;
-    pointer-events:none;
-}
-
-.divider svg{
-    width:100%;
-    height:100%;
-    display:block;
-}
-
-.line{
-    fill:none;
-    stroke-linecap:round;
-    stroke-linejoin:round;
-    stroke-dasharray:1800;
-    stroke-dashoffset:1800;
-    animation:drawLineCenter 2.8s ease forwards;
-}
-
-/* Warna garis */
-.red{
-    stroke:#ff3131;
-    stroke-width:34;
-}
-
-.yellow{
-    stroke:#f5d34f;
-    stroke-width:34;
-}
-
-.blue{
-    stroke:#4595d4;
-    stroke-width:34;
-}
-
-/* ANIMASI GARIS DARI BAWAH KE ATAS (MENJADI PEMBATAS TENGAH) */
-@keyframes drawLineCenter {
-    0% {
-        stroke-dashoffset: 1800;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
 
-/* =====================
-PAGE 2 DESKTOP
-===================== */
-.page2{
-    width:100%;
-    min-height:100vh;
-    background:#eeeeee;
-    padding:18px 24px;
-    opacity:0;
-    transform:translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.page2.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-.product-top{
-    background:#efc9bf;
-    border-radius:22px;
-    height:58vh;
-    position:relative;
-    overflow:hidden;
-    margin-bottom:16px;
-}
-
-.corner-stripes{
-    position:absolute;
-    top:0;
-    left:0;
-    width:420px;
-    z-index:3;
-}
-
-.stripe{
-    height:42px;
-    border-bottom-right-radius:90px;
-}
-
-.red-strip{ background:#ff3131; }
-.yellow-strip{ background:#f5d34f; margin-top:-2px; }
-.blue-strip{ background:#4595d4; margin-top:-2px; }
-
-.product-title{
-    position:absolute;
-    top:95px;
-    left:35px;
-    width:540px;
-    text-align:center;
-    font-size:72px;
-    font-weight:800;
-    color:#5d4c52;
-}
-
-.product-desc{
-    position:absolute;
-    top:210px;
-    left:40px;
-    width:540px;
-    text-align:center;
-    font-size:22px;
-    line-height:1.45;
-    font-weight:600;
-}
-
-.product-image{
-    position:absolute;
-    left:48%;
-    top:52%;
-    transform:translate(-50%,-50%);
-    width:520px;
-}
-
-.jasmine{
-    position:absolute;
-    top:70px;
-    right:240px;
-    color:white;
-    font-size:58px;
-    font-weight:800;
-}
-
-.rose{
-    position:absolute;
-    top:220px;
-    right:120px;
-    color:#ff5d66;
-    font-size:62px;
-    font-weight:800;
-}
-
-.lavender{
-    position:absolute;
-    bottom:40px;
-    right:180px;
-    color:#9334d9;
-    font-size:72px;
-    font-weight:800;
-}
-
-.bottom-grid{
-    display:flex;
-    gap:16px;
-}
-
-.natural-box{
-    flex:2;
-    background:#efc9bf;
-    border-radius:22px;
-    position:relative;
-    min-height:380px;
-    overflow:hidden;
-}
-
-.tawas-box{
-    flex:1;
-    min-height:380px;
-    background:#efc9bf;
-    border-radius:22px;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-}
-
-.tawas-title{
-    position:absolute;
-    top:18px;
-    left:18px;
-    font-size:120px;
-    font-weight:900;
-    line-height:0.9;
-    color:white;
-    opacity:0.95;
-    z-index:1;
-}
-
-.tawas-image{
-    width:82%;
-    height:auto;
-    object-fit:contain;
-    position:relative;
-    z-index:2;
-    transform:translateY(10px);
-}
-
-.flower-left{
-    position:absolute;
-    width:170px;
-    top:10px;
-    left:10px;
-}
-
-.flower-right{
-    position:absolute;
-    width:170px;
-    top:15px;
-    right:40px;
-}
-
-.flower-bottom{
-    position:absolute;
-    width:180px;
-    bottom:10px;
-    right:10px;
-}
-
-.curve-line{
-    position:absolute;
-    width:520px;
-    height:100%;
-    left:240px;
-    top:-30px;
-}
-
-.curve-line svg{
-    width:100%;
-    height:100%;
-}
-
-.curve-line path{
-    fill:none;
-    stroke:black;
-    stroke-width:2;
-}
-
-.natural-text{
-    position:absolute;
-    bottom:38px;
-    left:28px;
-    font-size:56px;
-    font-weight:900;
-    color:black;
-    white-space:nowrap;
-}
-
-/* =====================
-MOBILE VERSION (LAYAR ≤ 768px)
-===================== */
-
-@media(max-width: 768px){
-    
-    .desktop-only {
-        display: none;
-    }
-    
-    .mobile-only {
-        display: block;
-    }
-    
     body {
-        background: #fef6f0;
+        font-family: 'Poppins', sans-serif;
+        background: #f5f0eb;
+        overflow-x: hidden;
     }
-    
+
+    /* =====================
+    MOBILE PAGE - SESUAI GAMBAR
+    ===================== */
+
     .mobile-page {
         max-width: 500px;
         margin: 0 auto;
         background: #fef6f0;
         min-height: 100vh;
         padding: 24px 20px 40px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
     }
-    
+
+    /* Corner stripes seperti gambar */
     .corner-stripes-mobile {
         position: relative;
         margin-bottom: 20px;
     }
-    
+
     .stripe-mobile {
         height: 12px;
         border-bottom-right-radius: 20px;
     }
-    
+
     .stripe-red-mobile {
         background: #ff3131;
         width: 80px;
@@ -422,8 +56,9 @@ MOBILE VERSION (LAYAR ≤ 768px)
         width: 60px;
         margin-top: 4px;
     }
-    
-    .main-title-mobile {
+
+    /* Judul utama */
+    .main-title {
         font-size: 48px;
         font-weight: 800;
         color: #5d4c52;
@@ -431,8 +66,9 @@ MOBILE VERSION (LAYAR ≤ 768px)
         margin: 20px 0 16px;
         letter-spacing: -0.5px;
     }
-    
-    .description-mobile {
+
+    /* Deskripsi */
+    .description {
         font-size: 15px;
         font-weight: 500;
         line-height: 1.55;
@@ -443,66 +79,51 @@ MOBILE VERSION (LAYAR ≤ 768px)
         border-radius: 28px;
         margin-bottom: 32px;
     }
-    
-    .flavors-container-mobile {
+
+    /* 3 RASA - tampil horizontal */
+    .flavors-container {
         display: flex;
         justify-content: center;
         gap: 24px;
-        margin-bottom: 32px;
+        margin-bottom: 48px;
         flex-wrap: wrap;
     }
-    
-    .flavor-item-mobile {
+
+    .flavor-item {
         text-align: center;
         min-width: 90px;
     }
-    
-    .flavor-name-mobile {
+
+    .flavor-name {
         font-size: 28px;
         font-weight: 800;
         letter-spacing: 1px;
     }
-    
-    .flavor-jasmine-mobile {
+
+    .flavor-jasmine {
         color: #e8a0b5;
     }
-    .flavor-rose-mobile {
+    .flavor-rose {
         color: #ff5d66;
     }
-    .flavor-lavender-mobile {
+    .flavor-lavender {
         color: #9334d9;
     }
-    
-    .flavor-underline-mobile {
+
+    /* Garis dekorasi bawah rasa */
+    .flavor-underline {
         width: 40px;
         height: 3px;
         background: #d9c2b5;
         margin: 8px auto 0;
         border-radius: 4px;
     }
-    
-    .product-bottle-mobile {
-        display: flex;
-        justify-content: center;
-        margin: 16px 0 8px;
-    }
-    .bottle-icon-mobile {
-        width: 120px;
-        opacity: 0.7;
-    }
-    
-    .divider-line-mobile {
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(90deg, #ff3131, #f5d34f, #4595d4);
-        margin: 20px auto;
-        border-radius: 4px;
-    }
-    
+
+    /* Kotak BAHAN ALAMI */
     .natural-card-mobile {
         background: #efc9bf;
         border-radius: 32px;
-        padding: 32px 20px;
+        padding: 28px 20px;
         margin-bottom: 20px;
         position: relative;
         overflow: hidden;
@@ -511,9 +132,9 @@ MOBILE VERSION (LAYAR ≤ 768px)
         align-items: center;
         justify-content: center;
     }
-    
+
     .natural-text-mobile {
-        font-size: 26px;
+        font-size: 28px;
         font-weight: 900;
         color: #1c1418;
         text-align: center;
@@ -522,29 +143,31 @@ MOBILE VERSION (LAYAR ≤ 768px)
         z-index: 2;
         position: relative;
     }
-    
+
+    /* Dekorasi bunga di natural card */
     .flower-deco-mobile {
         position: absolute;
         opacity: 0.5;
         pointer-events: none;
     }
-    
-    .flower-deco-1-mobile {
+
+    .flower-deco-1 {
         top: 10px;
         left: 10px;
         width: 70px;
     }
-    .flower-deco-2-mobile {
+    .flower-deco-2 {
         top: 5px;
         right: 15px;
         width: 65px;
     }
-    .flower-deco-3-mobile {
+    .flower-deco-3 {
         bottom: 8px;
         right: 10px;
         width: 75px;
     }
-    
+
+    /* Kotak TAWAS */
     .tawas-card-mobile {
         background: #efc9bf;
         border-radius: 32px;
@@ -555,261 +178,185 @@ MOBILE VERSION (LAYAR ≤ 768px)
         gap: 16px;
         flex-wrap: wrap;
     }
-    
+
     .tawas-title-mobile {
         font-size: 56px;
         font-weight: 900;
         color: rgba(255, 248, 235, 0.92);
         letter-spacing: -1px;
         line-height: 1;
+        text-shadow: 2px 2px 0 rgba(0,0,0,0.05);
     }
-    
+
     .tawas-image-mobile {
-        width: 100px;
+        width: 110px;
         height: auto;
+        filter: drop-shadow(4px 8px 12px rgba(0,0,0,0.15));
     }
-    
-    .spacer-mobile {
-        height: 20px;
-    }
-}
 
-@media(max-width: 480px){
-    .mobile-page {
-        padding: 16px 16px 32px;
+    /* Gambar botol produk (dekorasi) */
+    .product-bottle-mobile {
+        display: flex;
+        justify-content: center;
+        margin: 16px 0 8px;
     }
-    .main-title-mobile {
-        font-size: 42px;
+    .bottle-icon {
+        width: 140px;
+        opacity: 0.7;
     }
-    .flavor-name-mobile {
-        font-size: 24px;
-    }
-    .flavors-container-mobile {
-        gap: 16px;
-    }
-    .natural-text-mobile {
-        font-size: 22px;
-    }
-    .tawas-title-mobile {
-        font-size: 44px;
-    }
-    .tawas-image-mobile {
-        width: 85px;
-    }
-    .description-mobile {
-        font-size: 13px;
-        padding: 14px;
-    }
-    .bottle-icon-mobile {
-        width: 100px;
-    }
-}
 
-@media(max-width: 380px){
-    .tawas-card-mobile {
-        flex-direction: column;
-        text-align: center;
+    /* Tambahan gaya */
+    .spacer {
+        height: 8px;
     }
-    .flavor-name-mobile {
-        font-size: 20px;
-    }
-    .main-title-mobile {
-        font-size: 36px;
-    }
-    .natural-text-mobile {
-        font-size: 18px;
-    }
-}
 
+    /* Garis pemisah dekoratif */
+    .divider-line {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #ff3131, #f5d34f, #4595d4);
+        margin: 20px auto;
+        border-radius: 4px;
+    }
+
+    /* Responsive kecil */
+    @media (max-width: 450px) {
+        .mobile-page {
+            padding: 16px 16px 32px;
+        }
+        .main-title {
+            font-size: 42px;
+        }
+        .flavor-name {
+            font-size: 24px;
+        }
+        .flavors-container {
+            gap: 16px;
+        }
+        .natural-text-mobile {
+            font-size: 24px;
+        }
+        .tawas-title-mobile {
+            font-size: 44px;
+        }
+        .tawas-image-mobile {
+            width: 90px;
+        }
+        .description {
+            font-size: 13px;
+            padding: 14px;
+        }
+    }
+
+    @media (max-width: 380px) {
+        .tawas-card-mobile {
+            flex-direction: column;
+            text-align: center;
+        }
+        .flavor-name {
+            font-size: 20px;
+        }
+        .main-title {
+            font-size: 36px;
+        }
+        .natural-text-mobile {
+            font-size: 20px;
+        }
+    }
 </style>
 </head>
 <body>
 
-<!-- ===================== DESKTOP VERSION ===================== -->
-<div class="desktop-only">
-    <div class="hero">
-        <section class="left" id="leftSection">
-            <img src="produk.jpg" alt="Produk Deododo">
-        </section>
+<div class="mobile-page">
+    
+    <!-- Corner stripes (atas kiri) -->
+    <div class="corner-stripes-mobile">
+        <div class="stripe-mobile stripe-red-mobile"></div>
+        <div class="stripe-mobile stripe-yellow-mobile"></div>
+        <div class="stripe-mobile stripe-blue-mobile"></div>
+    </div>
 
-        <section class="right" id="rightSection">
-            <div class="content">
-                <img src="logo.png" class="logo">
-                <div class="question">
-                    Tiny spray, big difference?
-                </div>
-                <div class="slogan">
-                    Glow up, smell up!
-                </div>
-                <div class="desc">
-                    Kunjungi FK-1 untuk mendapatkan
-                    <br>
-                    deodoran mini ini!
-                </div>
-            </div>
-        </section>
+    <!-- Judul Utama -->
+    <div class="main-title">
+        Deododo
+    </div>
 
-        <!-- GARIS PEMBATAS DI TENGAH (KIRI & KANAN) -->
-        <div class="divider" id="dividerLine">
-            <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
-                <path class="line red"
-                d="M 120 0 C 120 200 120 520 95 780 C 85 890 45 960 25 1020" />
-                <path class="line yellow"
-                d="M 150 0 C 150 200 150 520 125 780 C 115 890 75 960 55 1020" />
-                <path class="line blue"
-                d="M 180 0 C 180 200 180 520 155 780 C 145 890 105 960 85 1020" />
-            </svg>
+    <!-- Deskripsi Produk -->
+    <div class="description">
+        Deododo adalah deodoran spray yang menggunakan tawas sebagai bahan utamanya.<br>
+        Dengan 3 rasa yang bisa dipilih dari Jasmine hingga Lavender pasti akan menemani anda sepanjang hari.
+    </div>
+
+    <!-- 3 Varian Rasa (Jasmine, Rose, Lavender) -->
+    <div class="flavors-container">
+        <div class="flavor-item">
+            <div class="flavor-name flavor-jasmine">Jasmine</div>
+            <div class="flavor-underline"></div>
+        </div>
+        <div class="flavor-item">
+            <div class="flavor-name flavor-rose">Rose</div>
+            <div class="flavor-underline"></div>
+        </div>
+        <div class="flavor-item">
+            <div class="flavor-name flavor-lavender">Lavender</div>
+            <div class="flavor-underline"></div>
         </div>
     </div>
 
-    <section class="page2" id="page2Section">
-        <div class="product-top">
-            <div class="corner-stripes">
-                <div class="stripe red-strip"></div>
-                <div class="stripe yellow-strip"></div>
-                <div class="stripe blue-strip"></div>
-            </div>
-            <div class="product-title">
-                Deododo
-            </div>
-            <div class="product-desc">
-                Deododo adalah deodoran spray yang menggunakan
-                tawas sebagai bahan utamanya.
-                <br>
-                Dengan 3 rasa yang bisa dipilih dari
-                Jasmine hingga Lavender pasti akan
-                menemani anda sepanjang hari.
-            </div>
-            <img src="produk-page2.png" class="product-image" alt="Produk">
-            <div class="jasmine">Jasmine</div>
-            <div class="rose">Rose</div>
-            <div class="lavender">Lavender</div>
-        </div>
+    <!-- Gambar botol kecil (dekorasi) -->
+    <div class="product-bottle-mobile">
+        <svg class="bottle-icon" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="30" width="40" height="90" rx="12" fill="#eab9c9" stroke="#b35d7c" stroke-width="2"/>
+            <path d="M35 115 L65 115 L60 140 L40 140 Z" fill="#cea2b2"/>
+            <circle cx="50" cy="55" r="10" fill="#ffe0e7"/>
+            <text x="50" y="85" text-anchor="middle" fill="#6e3b4d" font-size="10" font-weight="bold">spray</text>
+        </svg>
+    </div>
 
-        <div class="bottom-grid">
-            <div class="natural-box">
-                <img src="rose.png" class="flower-left">
-                <img src="jasmine.png" class="flower-right">
-                <img src="lavender.png" class="flower-bottom">
-                <div class="curve-line">
-                    <svg viewBox="0 0 600 400">
-                        <path d="M120 0 C20 120 250 120 180 180 C120 230 250 250 320 310 C420 390 450 450 520 520"/>
-                    </svg>
-                </div>
-                <div class="natural-text">
-                    MENGGUNAKAN BAHAN ALAMI
-                </div>
-            </div>
-            <div class="tawas-box">
-                <div class="tawas-title">
-                    TAWAS
-                </div>
-                <img src="tawas.png" class="tawas-image">
-            </div>
-        </div>
-    </section>
-</div>
+    <!-- Garis pemisah warna-warni -->
+    <div class="divider-line"></div>
 
-<!-- ===================== MOBILE VERSION ===================== -->
-<div class="mobile-only">
-    <div class="mobile-page">
+    <!-- Kotak MENGGUNAKAN BAHAN ALAMI -->
+    <div class="natural-card-mobile">
+        <!-- Dekorasi bunga (mirip gambar) -->
+        <svg class="flower-deco-mobile flower-deco-1" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="30" fill="#ffb7c5" opacity="0.7"/>
+            <circle cx="40" cy="25" r="12" fill="#ffe0e7"/>
+            <circle cx="55" cy="40" r="12" fill="#ffe0e7"/>
+            <circle cx="40" cy="55" r="12" fill="#ffe0e7"/>
+            <circle cx="25" cy="40" r="12" fill="#ffe0e7"/>
+        </svg>
+        <svg class="flower-deco-mobile flower-deco-2" viewBox="0 0 80 80" fill="none">
+            <path fill="#d6b0e0" d="M40 15 L48 32 L67 35 L52 48 L58 67 L40 56 L22 67 L28 48 L13 35 L32 32 Z" opacity="0.6"/>
+        </svg>
+        <svg class="flower-deco-mobile flower-deco-3" viewBox="0 0 80 80" fill="none">
+            <circle cx="40" cy="40" r="28" fill="#f9e0a8" opacity="0.7"/>
+            <circle cx="40" cy="40" r="14" fill="#f8c471"/>
+        </svg>
         
-        <div class="corner-stripes-mobile">
-            <div class="stripe-mobile stripe-red-mobile"></div>
-            <div class="stripe-mobile stripe-yellow-mobile"></div>
-            <div class="stripe-mobile stripe-blue-mobile"></div>
+        <div class="natural-text-mobile">
+            MENGGUNAKAN<br>BAHAN ALAMI
         </div>
-
-        <div class="main-title-mobile">
-            Deododo
-        </div>
-
-        <div class="description-mobile">
-            Deododo adalah deodoran spray yang menggunakan tawas sebagai bahan utamanya.<br>
-            Dengan 3 rasa yang bisa dipilih dari Jasmine hingga Lavender pasti akan menemani anda sepanjang hari.
-        </div>
-
-        <div class="flavors-container-mobile">
-            <div class="flavor-item-mobile">
-                <div class="flavor-name-mobile flavor-jasmine-mobile">Jasmine</div>
-                <div class="flavor-underline-mobile"></div>
-            </div>
-            <div class="flavor-item-mobile">
-                <div class="flavor-name-mobile flavor-rose-mobile">Rose</div>
-                <div class="flavor-underline-mobile"></div>
-            </div>
-            <div class="flavor-item-mobile">
-                <div class="flavor-name-mobile flavor-lavender-mobile">Lavender</div>
-                <div class="flavor-underline-mobile"></div>
-            </div>
-        </div>
-
-        <div class="product-bottle-mobile">
-            <svg class="bottle-icon-mobile" viewBox="0 0 100 160" fill="none">
-                <rect x="30" y="30" width="40" height="90" rx="12" fill="#eab9c9" stroke="#b35d7c" stroke-width="2"/>
-                <path d="M35 115 L65 115 L60 140 L40 140 Z" fill="#cea2b2"/>
-                <circle cx="50" cy="55" r="10" fill="#ffe0e7"/>
-                <text x="50" y="85" text-anchor="middle" fill="#6e3b4d" font-size="10" font-weight="bold">spray</text>
-            </svg>
-        </div>
-
-        <div class="divider-line-mobile"></div>
-
-        <div class="natural-card-mobile">
-            <svg class="flower-deco-mobile flower-deco-1-mobile" viewBox="0 0 80 80">
-                <circle cx="40" cy="40" r="30" fill="#ffb7c5" opacity="0.7"/>
-                <circle cx="40" cy="25" r="12" fill="#ffe0e7"/>
-                <circle cx="55" cy="40" r="12" fill="#ffe0e7"/>
-                <circle cx="40" cy="55" r="12" fill="#ffe0e7"/>
-                <circle cx="25" cy="40" r="12" fill="#ffe0e7"/>
-            </svg>
-            <svg class="flower-deco-mobile flower-deco-2-mobile" viewBox="0 0 80 80">
-                <path fill="#d6b0e0" d="M40 15 L48 32 L67 35 L52 48 L58 67 L40 56 L22 67 L28 48 L13 35 L32 32 Z" opacity="0.6"/>
-            </svg>
-            <svg class="flower-deco-mobile flower-deco-3-mobile" viewBox="0 0 80 80">
-                <circle cx="40" cy="40" r="28" fill="#f9e0a8" opacity="0.7"/>
-                <circle cx="40" cy="40" r="14" fill="#f8c471"/>
-            </svg>
-            
-            <div class="natural-text-mobile">
-                MENGGUNAKAN<br>BAHAN ALAMI
-            </div>
-        </div>
-
-        <div class="tawas-card-mobile">
-            <div class="tawas-title-mobile">
-                TAWAS
-            </div>
-            <svg class="tawas-image-mobile" viewBox="0 0 120 120">
-                <rect x="25" y="20" width="70" height="80" rx="14" fill="#e8e0d3" stroke="#b2977a" stroke-width="3"/>
-                <polygon points="55,20 65,20 62,10 58,10" fill="#cdb89a"/>
-                <rect x="38" y="45" width="44" height="12" fill="#bcab8f" rx="3"/>
-                <rect x="42" y="65" width="36" height="10" fill="#bcab8f" rx="3"/>
-                <text x="60" y="95" text-anchor="middle" fill="#8b6b4f" font-size="10" font-weight="bold">alami</text>
-            </svg>
-        </div>
-
-        <div class="spacer-mobile"></div>
     </div>
+
+    <!-- Kotak TAWAS -->
+    <div class="tawas-card-mobile">
+        <div class="tawas-title-mobile">
+            TAWAS
+        </div>
+        <svg class="tawas-image-mobile" viewBox="0 0 120 120" fill="none">
+            <rect x="25" y="20" width="70" height="80" rx="14" fill="#e8e0d3" stroke="#b2977a" stroke-width="3"/>
+            <polygon points="55,20 65,20 62,10 58,10" fill="#cdb89a"/>
+            <rect x="38" y="45" width="44" height="12" fill="#bcab8f" rx="3"/>
+            <rect x="42" y="65" width="36" height="10" fill="#bcab8f" rx="3"/>
+            <text x="60" y="95" text-anchor="middle" fill="#8b6b4f" font-size="10" font-weight="bold">alami</text>
+        </svg>
+    </div>
+
+    <!-- Spacer bawah -->
+    <div class="spacer"></div>
+
 </div>
-
-<script>
-// Animasi untuk desktop:
-// 1. Garis pembatas bergerak dulu (2.8 detik)
-// 2. Setelah selesai, baru konten kiri, kanan, dan page2 muncul
-
-setTimeout(() => {
-    // Munculkan konten kiri dan kanan
-    const leftElem = document.getElementById("leftSection");
-    const rightElem = document.getElementById("rightSection");
-    const page2Elem = document.getElementById("page2Section");
-    
-    if(leftElem) leftElem.classList.add("show");
-    if(rightElem) rightElem.classList.add("show");
-    if(page2Elem) page2Elem.classList.add("show");
-    
-}, 2800); // 2800ms = 2.8 detik (sesuai durasi animasi garis)
-</script>
 
 </body>
 </html>
