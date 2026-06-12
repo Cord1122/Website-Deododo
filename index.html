@@ -363,12 +363,16 @@ DESKTOP VERSION (DEFAULT)
 }
 
 /* =====================
-MOBILE-ONLY ELEMENTS (awalnya disembunyikan)
+GAMBAR KHUSUS MOBILE (dari file yang dikirim)
 ===================== */
-.mobile-only{
+.mobile-hero-image{
     display: none;
+    width: 100%;
 }
 
+/* =====================
+MOBILE-ONLY ELEMENTS
+===================== */
 .mobile-scent-wrapper{
     display: none;
 }
@@ -439,16 +443,36 @@ SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
         height: auto;
         min-height: 100vh;
     }
-    .left, .right{
+    
+    /* SEMBUNYIKAN gambar desktop di hero */
+    .left{
+        display: none;
+    }
+    
+    /* TAMPILKAN gambar mobile di hero */
+    .mobile-hero-image{
+        display: block;
         width: 100%;
-        height: 50vh;
-        min-height: 320px;
+        height: auto;
+        background: #f3e1e8;
+    }
+    .mobile-hero-image img{
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    
+    .right{
+        width: 100%;
+        min-height: 50vh;
     }
     .divider{
         display: none;
     }
     .content{
         width: 90%;
+        padding: 30px 0;
     }
     .logo{
         width: 60%;
@@ -512,7 +536,7 @@ SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
         display: none;
     }
     
-    /* TAMPILKAN MOBILE VERSION SCENT WRAPPER */
+    /* TAMPILKAN MOBILE VERSION SCENT WRAPPER (TANPA EMOJI) */
     .mobile-scent-wrapper{
         display: flex;
         justify-content: center;
@@ -612,8 +636,8 @@ MOBILE EKSTRA KECIL (max-width: 480px)
     .flower-left, .flower-right, .flower-bottom{
         width: 50px;
     }
-    .left, .right{
-        min-height: 280px;
+    .right{
+        min-height: auto;
     }
     .question{
         font-size: 24px;
@@ -633,6 +657,12 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 
 <div class="hero">
 
+    <!-- GAMBAR KHUSUS MOBILE (HANYA TAMPIL DI HP) -->
+    <div class="mobile-hero-image">
+        <img src="Untitled design (1).png" alt="Deododo Mobile Banner">
+    </div>
+
+    <!-- GAMBAR DESKTOP (HANYA TAMPIL DI KOMPUTER) -->
     <section class="left" id="leftSection">
         <img src="produk.jpg" alt="Produk Deododo">
     </section>
@@ -699,11 +729,11 @@ MOBILE EKSTRA KECIL (max-width: 480px)
         <div class="rose">Rose</div>
         <div class="lavender">Lavender</div>
 
-        <!-- MOBILE VERSION: tampil hanya di HP, tidak bertabrakan -->
+        <!-- MOBILE VERSION: tampil hanya di HP (TANPA EMOJI) -->
         <div class="mobile-scent-wrapper">
-            <span class="mobile-scent mobile-scent-jasmine">🌼 Jasmine</span>
-            <span class="mobile-scent mobile-scent-rose">🌹 Rose</span>
-            <span class="mobile-scent mobile-scent-lavender">🌸 Lavender</span>
+            <span class="mobile-scent mobile-scent-jasmine">Jasmine</span>
+            <span class="mobile-scent mobile-scent-rose">Rose</span>
+            <span class="mobile-scent mobile-scent-lavender">Lavender</span>
         </div>
 
     </div>
@@ -751,7 +781,8 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 <script>
 
 setTimeout(() => {
-    document.getElementById("leftSection").classList.add("show");
+    const leftElem = document.getElementById("leftSection");
+    if(leftElem) leftElem.classList.add("show");
     document.getElementById("rightSection").classList.add("show");
 }, 2300);
 
