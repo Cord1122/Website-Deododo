@@ -2,12 +2,9 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Deododo</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-
 <style>
 
 *{
@@ -72,7 +69,6 @@ RIGHT
     justify-content:center;
     align-items:center;
     overflow:hidden;
-
     opacity:0;
     transform:translateY(60px);
 }
@@ -134,20 +130,15 @@ DIVIDER
     height:100%;
 }
 
-/* path animation */
-
 .line{
     fill:none;
     stroke-linecap:round;
     stroke-linejoin:round;
-
     stroke-dasharray:1800;
     stroke-dashoffset:1800;
-
     animation:drawLine 3.8s ease forwards;
 }
 
-/* lebih mirip Canva */
 .red{
     stroke:#ff3131;
     stroke-width:34;
@@ -163,26 +154,16 @@ DIVIDER
     stroke-width:34;
 }
 
-/* =====================
-ANIMATION
-===================== */
-
-/* pause di bawah */
 @keyframes drawLine{
-
     0%{
         stroke-dashoffset:1800;
     }
-
     35%{
         stroke-dashoffset:900;
     }
-
-    /* pause */
     48%{
         stroke-dashoffset:900;
     }
-
     100%{
         stroke-dashoffset:0;
     }
@@ -193,7 +174,6 @@ ANIMATION
         opacity:0;
         transform:translateY(-60px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
@@ -205,14 +185,13 @@ ANIMATION
         opacity:0;
         transform:translateY(60px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
 
-    /* ==========================
+/* ==========================
 PAGE 2 - PRODUCT INFO
 ========================== */
 
@@ -223,8 +202,6 @@ PAGE 2 - PRODUCT INFO
     padding:18px 24px;
 }
 
-/* top box */
-
 .product-top{
     background:#efc9bf;
     border-radius:22px;
@@ -233,8 +210,6 @@ PAGE 2 - PRODUCT INFO
     overflow:hidden;
     margin-bottom:16px;
 }
-
-/* corner stripes */
 
 .corner-stripes{
     position:absolute;
@@ -263,21 +238,16 @@ PAGE 2 - PRODUCT INFO
     margin-top:-2px;
 }
 
-/* title */
-
 .product-title{
     position:absolute;
     top:95px;
     left:35px;
     width:540px;
-
     text-align:center;
-
     font-size:72px;
     font-weight:800;
     color:#5d4c52;
 }
-/* desc */
 
 .product-desc{
     position:absolute;
@@ -290,8 +260,6 @@ PAGE 2 - PRODUCT INFO
     font-weight:600;
 }
 
-/* product image */
-
 .product-image{
     position:absolute;
     left:48%;
@@ -299,8 +267,6 @@ PAGE 2 - PRODUCT INFO
     transform:translate(-50%,-50%);
     width:520px;
 }
-
-/* scent names */
 
 .jasmine{
     position:absolute;
@@ -329,14 +295,10 @@ PAGE 2 - PRODUCT INFO
     font-weight:800;
 }
 
-/* bottom grid */
-
 .bottom-grid{
     display:flex;
     gap:16px;
 }
-
-/* natural box */
 
 .natural-box{
     flex:2;
@@ -347,8 +309,6 @@ PAGE 2 - PRODUCT INFO
     overflow:hidden;
 }
 
-/* tawas box */
-
 .tawas-box{
     flex:1;
     min-height:380px;
@@ -356,45 +316,31 @@ PAGE 2 - PRODUCT INFO
     border-radius:22px;
     position:relative;
     overflow:hidden;
-
     display:flex;
     justify-content:center;
     align-items:flex-end;
 }
 
-/* tulisan background */
-
 .tawas-title{
     position:absolute;
-
     top:18px;
     left:18px;
-
     font-size:120px;
     font-weight:900;
     line-height:0.9;
-
     color:white;
     opacity:0.95;
-
     z-index:1;
 }
-
-/* gambar tawas */
 
 .tawas-image{
     width:82%;
     height:auto;
-
     object-fit:contain;
-
     position:relative;
     z-index:2;
-
     transform:translateY(10px);
 }
-
-/* flowers */
 
 .flower-left{
     position:absolute;
@@ -417,8 +363,6 @@ PAGE 2 - PRODUCT INFO
     right:10px;
 }
 
-/* scribble line */
-
 .curve-line{
     position:absolute;
     width:520px;
@@ -438,70 +382,222 @@ PAGE 2 - PRODUCT INFO
     stroke-width:2;
 }
 
-/* natural text */
-
 .natural-text{
     position:absolute;
     bottom:38px;
     left:28px;
-
     font-size:56px;
     font-weight:900;
     color:black;
-
     white-space:nowrap;
 }
+
 /* =====================
-RESPONSIVE
+RESPONSIVE FIXES - HANYA MEMPERBAIKI MASALAH MOBILE
 ===================== */
 
-@media(max-width:900px){
-
-    body{
-        overflow-x:hidden;
+@media(max-width: 1024px){
+    .product-title{
+        font-size: 52px;
+        top: 70px;
+        left: 20px;
+        width: auto;
+        right: 20px;
     }
+    .product-desc{
+        font-size: 18px;
+        top: 160px;
+        left: 20px;
+        width: auto;
+        right: 20px;
+    }
+    .product-image{
+        width: 380px;
+        left: 50%;
+        top: 55%;
+    }
+    .jasmine{
+        font-size: 40px;
+        right: 160px;
+        top: 50px;
+    }
+    .rose{
+        font-size: 44px;
+        right: 80px;
+        top: 170px;
+    }
+    .lavender{
+        font-size: 48px;
+        right: 110px;
+        bottom: 50px;
+    }
+    .natural-text{
+        font-size: 40px;
+        white-space: normal;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        text-align: center;
+    }
+    .flower-left, .flower-right, .flower-bottom{
+        width: 100px;
+    }
+    .flower-right{
+        right: 15px;
+    }
+    .tawas-title{
+        font-size: 80px;
+    }
+}
 
-    /* HERO tetap desktop */
+@media(max-width: 880px){
     .hero{
-        height:100vh;
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
     }
-
-    .left{
-        width:50%;
-        height:100vh;
+    .left, .right{
+        width: 100%;
+        height: 50vh;
+        min-height: 300px;
     }
-
-    .right{
-        width:50%;
-        height:100vh;
-    }
-
-    /* divider tetap tampil */
     .divider{
-        width:140px;
+        display: none;
     }
-
-    /* teks diperkecil proporsional */
     .content{
-        width:88%;
+        width: 90%;
     }
-
     .logo{
-        width:92%;
-        margin-bottom:18px;
+        width: 60%;
+        margin-bottom: 20px;
     }
-
     .question{
-        font-size:clamp(20px,5vw,36px);
+        font-size: 28px;
     }
-
     .slogan{
-        font-size:clamp(20px,4vw,32px);
-        margin-bottom:42px;
+        font-size: 28px;
+        margin-bottom: 40px;
     }
-
     .desc{
-        font-size:clamp(12px,2.6vw,18px);
+        font-size: 16px;
+    }
+}
+
+@media(max-width: 768px){
+    .page2{
+        padding: 12px 16px;
+    }
+    .product-top{
+        height: auto;
+        min-height: 580px;
+        padding-bottom: 20px;
+    }
+    .product-title{
+        position: relative;
+        top: 60px;
+        left: auto;
+        text-align: center;
+        font-size: 42px;
+        margin-bottom: 0;
+    }
+    .product-desc{
+        position: relative;
+        top: 70px;
+        left: auto;
+        font-size: 14px;
+        padding: 0 16px;
+        margin-bottom: 20px;
+    }
+    .product-image{
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 220px;
+        margin: 80px auto 20px;
+        display: block;
+    }
+    .jasmine, .rose, .lavender{
+        position: relative;
+        display: inline-block;
+        margin: 0 8px;
+        font-size: 28px;
+        top: auto;
+        right: auto;
+        bottom: auto;
+    }
+    .scent-wrapper{
+        text-align: center;
+        margin: 10px 0 20px;
+    }
+    .jasmine{ color: white; }
+    .rose{ color: #ff5d66; }
+    .lavender{ color: #9334d9; }
+    
+    .bottom-grid{
+        flex-direction: column;
+    }
+    .natural-box, .tawas-box{
+        min-height: 280px;
+    }
+    .natural-text{
+        font-size: 28px;
+        white-space: normal;
+        text-align: center;
+        bottom: 15px;
+        left: 10px;
+        right: 10px;
+    }
+    .tawas-title{
+        font-size: 60px;
+        top: 10px;
+        left: 15px;
+    }
+    .tawas-image{
+        width: 60%;
+    }
+    .flower-left, .flower-right, .flower-bottom{
+        width: 70px;
+    }
+    .curve-line{
+        width: 300px;
+        left: 100px;
+        top: auto;
+        bottom: 20px;
+    }
+}
+
+@media(max-width: 480px){
+    .product-title{
+        font-size: 32px;
+        top: 40px;
+    }
+    .product-desc{
+        font-size: 12px;
+        top: 50px;
+    }
+    .product-image{
+        width: 180px;
+        margin-top: 60px;
+    }
+    .jasmine, .rose, .lavender{
+        font-size: 22px;
+        margin: 0 5px;
+    }
+    .natural-text{
+        font-size: 20px;
+    }
+    .tawas-title{
+        font-size: 44px;
+    }
+    .flower-left, .flower-right, .flower-bottom{
+        width: 50px;
+    }
+    .corner-stripes{
+        width: 200px;
+    }
+    .stripe{
+        height: 28px;
     }
 }
 
@@ -511,73 +607,40 @@ RESPONSIVE
 
 <div class="hero">
 
-    <!-- LEFT -->
     <section class="left" id="leftSection">
         <img src="produk.jpg" alt="Produk Deododo">
     </section>
 
-<!-- RIGHT -->
-<section class="right" id="rightSection">
-
-    <div class="content">
-
-        <img src="logo.png" class="logo">
-
-        <div class="question">
-            Tiny spray, big difference?
+    <section class="right" id="rightSection">
+        <div class="content">
+            <img src="logo.png" class="logo">
+            <div class="question">
+                Tiny spray, big difference?
+            </div>
+            <div class="slogan">
+                Glow up, smell up!
+            </div>
+            <div class="desc">
+                Kunjungi FK-1 untuk mendapatkan
+                <br>
+                deodoran mini ini!
+            </div>
         </div>
+    </section>
 
-        <div class="slogan">
-            Glow up, smell up!
-        </div>
-
-        <div class="desc">
-            Kunjungi FK-1 untuk mendapatkan
-            <br>
-            deodoran mini ini!
-        </div>
-
+    <div class="divider">
+        <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
+            <path class="line red"
+            d="M 120 0 C 120 200 120 520 95 780 C 85 890 45 960 25 1020" />
+            <path class="line yellow"
+            d="M 150 0 C 150 200 150 520 125 780 C 115 890 75 960 55 1020" />
+            <path class="line blue"
+            d="M 180 0 C 180 200 180 520 155 780 C 145 890 105 960 85 1020" />
+        </svg>
     </div>
-
-</section>
-
-<!-- DIVIDER -->
-<div class="divider">
-
-    <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
-
-        <!-- RED -->
-        <path class="line red"
-        d="
-        M 120 0
-        C 120 200 120 520 95 780
-        C 85 890 45 960 25 1020
-        " />
-
-        <!-- YELLOW -->
-        <path class="line yellow"
-        d="
-        M 150 0
-        C 150 200 150 520 125 780
-        C 115 890 75 960 55 1020
-        " />
-
-        <!-- BLUE -->
-        <path class="line blue"
-        d="
-        M 180 0
-        C 180 200 180 520 155 780
-        C 145 890 105 960 85 1020
-        " />
-
-    </svg>
 
 </div>
 
-</div> <!-- tutup hero -->
-
-
-<!-- PAGE 2 -->
 <section class="page2">
 
     <div class="product-top">
@@ -605,9 +668,11 @@ RESPONSIVE
         class="product-image"
         alt="Produk">
 
-        <div class="jasmine">Jasmine</div>
-        <div class="rose">Rose</div>
-        <div class="lavender">Lavender</div>
+        <div class="scent-wrapper">
+            <span class="jasmine">Jasmine</span>
+            <span class="rose">Rose</span>
+            <span class="lavender">Lavender</span>
+        </div>
 
     </div>
 
@@ -626,14 +691,7 @@ RESPONSIVE
 
             <div class="curve-line">
                 <svg viewBox="0 0 600 400">
-
-                    <path d="
-                    M120 0
-                    C20 120 250 120 180 180
-                    C120 230 250 250 320 310
-                    C420 390 450 450 520 520
-                    "/>
-
+                    <path d="M120 0 C20 120 250 120 180 180 C120 230 250 250 320 310 C420 390 450 450 520 520"/>
                 </svg>
             </div>
 
@@ -657,54 +715,12 @@ RESPONSIVE
     </div>
 
 </section>
-    
-<!-- DIVIDER -->
-<div class="divider">
-
-    <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
-
-        <!-- RED -->
-        <path class="line red"
-        d="
-        M 120 0
-        C 120 200 120 520 95 780
-        C 85 890 45 960 25 1020
-        " />
-
-        <!-- YELLOW -->
-        <path class="line yellow"
-        d="
-        M 150 0
-        C 150 200 150 520 125 780
-        C 115 890 75 960 55 1020
-        " />
-
-        <!-- BLUE -->
-        <path class="line blue"
-        d="
-        M 180 0
-        C 180 200 180 520 155 780
-        C 145 890 105 960 85 1020
-        " />
-
-    </svg>
-
-    </div>
-
-</div>
 
 <script>
 
 setTimeout(() => {
-
-    document
-    .getElementById("leftSection")
-    .classList.add("show");
-
-    document
-    .getElementById("rightSection")
-    .classList.add("show");
-
+    document.getElementById("leftSection").classList.add("show");
+    document.getElementById("rightSection").classList.add("show");
 }, 3700);
 
 </script>
