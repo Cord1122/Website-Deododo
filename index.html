@@ -377,6 +377,11 @@ MOBILE-ONLY ELEMENTS
     display: none;
 }
 
+/* Mobile bottom card - hanya tampil di mobile */
+.mobile-bottom-card{
+    display: none;
+}
+
 /* =====================
 RESPONSIVE: TABLET (max-width: 900px)
 ===================== */
@@ -433,7 +438,6 @@ RESPONSIVE: TABLET (max-width: 900px)
 
 /* =====================
 RESPONSIVE: MOBILE/HP (max-width: 768px)
-SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
 ===================== */
 @media(max-width: 768px){
     
@@ -489,118 +493,194 @@ SEMUA DIATUR ULANG AGAR TIDAK BERTABRAKAN
         font-size: 16px;
     }
 
-    /* PAGE 2 - product top diubah jadi relative */
+    /* PAGE 2 */
     .page2{
         padding: 12px 16px;
     }
+
+    /* ===== PRODUCT TOP: mobile layout ===== */
     .product-top{
         height: auto;
-        min-height: 580px;
-        padding-bottom: 30px;
+        min-height: unset;
+        padding: 0 0 24px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
+        position: relative;
     }
-    
-    /* title & desc jadi relative */
+
+    /* corner stripes tetap */
+    .corner-stripes{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 180px;
+        z-index: 3;
+    }
+    .stripe{
+        height: 26px;
+    }
+
+    /* Bunga jasmine pojok kanan atas - tampil di mobile */
+    .flower-right{
+        position: absolute;
+        width: 110px;
+        top: 0px;
+        right: 0px;
+        left: auto;
+        bottom: auto;
+    }
+
+    /* Sembunyikan flower-left & flower-bottom dari product-top di mobile
+       (mereka ada di natural-box, kita handle di mobile-bottom-card) */
+    .natural-box .flower-left,
+    .natural-box .flower-bottom{
+        display: none;
+    }
+
+    /* title relative */
     .product-title{
         position: relative;
         top: 0;
         left: 0;
         text-align: center;
-        font-size: 42px;
-        padding-top: 60px;
+        font-size: 38px;
+        font-weight: 800;
+        color: #5d4c52;
+        padding-top: 50px;
         margin-bottom: 0;
         width: 100%;
+        order: 1;
     }
+
+    /* desc relative */
     .product-desc{
         position: relative;
         top: 0;
         left: 0;
-        font-size: 14px;
-        padding: 16px 20px;
+        font-size: 13px;
+        padding: 10px 24px;
         margin: 0 auto;
         width: 100%;
+        text-align: center;
+        order: 2;
     }
-    
+
     /* gambar produk */
     .product-image{
         position: relative;
         left: auto;
         top: auto;
         transform: none;
-        width: 220px;
-        margin: 20px auto;
+        width: 240px;
+        margin: 16px auto 0;
         display: block;
+        order: 3;
     }
-    
-    /* SEMUA SCENT (Jasmine, Rose, Lavender) DISEMBUNYIKAN dari posisi absolute */
+
+    /* curve line di product-top */
+    .curve-line{
+        display: none;
+    }
+
+    /* Sembunyikan scent labels desktop */
     .jasmine, .rose, .lavender{
         display: none;
     }
-    
-    /* TAMPILKAN MOBILE VERSION SCENT WRAPPER (TANPA EMOJI) */
+
+    /* MOBILE SCENT BADGES - outline style seperti gambar */
     .mobile-scent-wrapper{
         display: flex;
         justify-content: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin: 16px 0 20px;
+        gap: 10px;
+        flex-wrap: nowrap;
+        margin: 18px 16px 0;
+        order: 4;
     }
     .mobile-scent{
-        font-size: 28px;
-        font-weight: 800;
-        padding: 4px 16px;
+        font-size: 18px;
+        font-weight: 700;
+        padding: 8px 20px;
         border-radius: 50px;
-        background: rgba(255,255,255,0.3);
+        background: transparent;
+        border: 2px solid rgba(180,140,150,0.55);
+        color: #7a6060;
+        letter-spacing: 0.01em;
     }
-    .mobile-scent-jasmine{ color: white; }
-    .mobile-scent-rose{ color: #ff5d66; }
-    .mobile-scent-lavender{ color: #9334d9; }
-    
-    /* bottom grid jadi column */
+    .mobile-scent-jasmine{ color: #9a7070; border-color: rgba(160,120,130,0.5); }
+    .mobile-scent-rose{ color: #d96070; border-color: rgba(210,100,110,0.5); }
+    .mobile-scent-lavender{ color: #8845c0; border-color: rgba(140,80,200,0.45); }
+
+    /* ===== BOTTOM GRID MOBILE: satu kartu gabungan ===== */
+
+    /* Sembunyikan desktop bottom grid */
     .bottom-grid{
-        flex-direction: column;
+        display: none;
     }
-    .natural-box, .tawas-box{
-        min-height: 280px;
+
+    /* Tampilkan mobile bottom card */
+    .mobile-bottom-card{
+        display: block;
+        background: #1e1e1e;
+        border-radius: 22px;
+        position: relative;
+        overflow: hidden;
+        min-height: 340px;
+        margin-top: 0;
     }
-    
-    /* natural text */
-    .natural-text{
-        font-size: 28px;
-        white-space: normal;
-        text-align: center;
-        bottom: 15px;
-        left: 10px;
-        right: 10px;
+
+    .mobile-bottom-card .mbc-header{
+        padding: 22px 20px 0 20px;
+        font-size: 22px;
+        font-weight: 900;
+        color: white;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        position: relative;
+        z-index: 2;
     }
-    
-    /* tawas */
-    .tawas-title{
-        font-size: 60px;
-        top: 12px;
-        left: 15px;
-    }
-    .tawas-image{
-        width: 65%;
-        max-width: 150px;
-    }
-    
-    /* dekorasi bunga */
-    .flower-left, .flower-right, .flower-bottom{
-        width: 70px;
-    }
-    .curve-line{
-        width: 300px;
-        left: 100px;
-        top: auto;
+
+    .mobile-bottom-card .mbc-tawas-text{
+        position: absolute;
         bottom: 20px;
+        left: 18px;
+        font-size: 90px;
+        font-weight: 900;
+        color: white;
+        opacity: 0.95;
+        line-height: 1;
+        z-index: 2;
+        letter-spacing: -2px;
     }
-    
-    /* corner stripes lebih kecil */
-    .corner-stripes{
-        width: 200px;
+
+    .mobile-bottom-card .mbc-tawas-image{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65%;
+        max-width: 260px;
+        z-index: 2;
+        object-fit: contain;
     }
-    .stripe{
-        height: 30px;
+
+    /* Bunga rose kanan atas */
+    .mobile-bottom-card .mbc-flower-rose{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 90px;
+        z-index: 3;
+    }
+
+    /* Bunga lavender kanan bawah */
+    .mobile-bottom-card .mbc-flower-lavender{
+        position: absolute;
+        bottom: 10px;
+        right: 8px;
+        width: 80px;
+        z-index: 3;
     }
 }
 
@@ -609,32 +689,42 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 ===================== */
 @media(max-width: 480px){
     .product-title{
-        font-size: 32px;
-        padding-top: 45px;
+        font-size: 30px;
+        padding-top: 40px;
     }
     .product-desc{
         font-size: 12px;
-        padding: 12px 16px;
+        padding: 8px 18px;
     }
     .product-image{
-        width: 170px;
-        margin: 10px auto;
+        width: 190px;
+        margin-top: 12px;
     }
     .mobile-scent{
-        font-size: 20px;
-        padding: 2px 12px;
+        font-size: 15px;
+        padding: 6px 14px;
     }
     .mobile-scent-wrapper{
-        gap: 8px;
+        gap: 7px;
+        margin: 14px 12px 0;
     }
-    .natural-text{
-        font-size: 20px;
+    .mobile-bottom-card .mbc-header{
+        font-size: 18px;
+        padding: 18px 16px 0 16px;
     }
-    .tawas-title{
-        font-size: 44px;
+    .mobile-bottom-card .mbc-tawas-text{
+        font-size: 70px;
+        bottom: 15px;
+        left: 14px;
     }
-    .flower-left, .flower-right, .flower-bottom{
-        width: 50px;
+    .mobile-bottom-card .mbc-tawas-image{
+        width: 60%;
+    }
+    .mobile-bottom-card .mbc-flower-rose{
+        width: 70px;
+    }
+    .mobile-bottom-card .mbc-flower-lavender{
+        width: 65px;
     }
     .right{
         min-height: auto;
@@ -707,6 +797,9 @@ MOBILE EKSTRA KECIL (max-width: 480px)
             <div class="stripe blue-strip"></div>
         </div>
 
+        <!-- Bunga jasmine pojok kanan atas (flower-right dipakai ulang untuk mobile) -->
+        <img src="jasmine.png" class="flower-right" alt="Jasmine">
+
         <div class="product-title">
             Deododo
         </div>
@@ -729,7 +822,7 @@ MOBILE EKSTRA KECIL (max-width: 480px)
         <div class="rose">Rose</div>
         <div class="lavender">Lavender</div>
 
-        <!-- MOBILE VERSION: tampil hanya di HP (TANPA EMOJI) -->
+        <!-- MOBILE VERSION scent badges (outline style) -->
         <div class="mobile-scent-wrapper">
             <span class="mobile-scent mobile-scent-jasmine">Jasmine</span>
             <span class="mobile-scent mobile-scent-rose">Rose</span>
@@ -738,6 +831,7 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 
     </div>
 
+    <!-- DESKTOP: bottom grid dua kotak terpisah -->
     <div class="bottom-grid">
 
         <div class="natural-box">
@@ -773,6 +867,24 @@ MOBILE EKSTRA KECIL (max-width: 480px)
             class="tawas-image">
 
         </div>
+
+    </div>
+
+    <!-- MOBILE ONLY: satu kartu gelap gabungan -->
+    <div class="mobile-bottom-card">
+
+        <div class="mbc-header">
+            MENGGUNAKAN BAHAN ALAMI
+        </div>
+
+        <div class="mbc-tawas-text">
+            TAWAS
+        </div>
+
+        <img src="tawas.png" class="mbc-tawas-image" alt="Tawas">
+
+        <img src="rose.png" class="mbc-flower-rose" alt="Rose">
+        <img src="lavender.png" class="mbc-flower-lavender" alt="Lavender">
 
     </div>
 
