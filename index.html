@@ -17,11 +17,15 @@
 }
 
 body{
-    overflow:hidden;
-    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    overflow-y:auto;
     background:white;
+    font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
 .hero{
     width:100%;
     height:100vh;
@@ -207,6 +211,219 @@ ANIMATION
     }
 }
 
+/* ==========================
+PAGE 2 - PRODUCT INFO
+========================== */
+
+.page2{
+    width:100%;
+    min-height:100vh;
+    background:#eeeeee;
+    padding:18px 24px;
+}
+
+/* top box */
+
+.product-top{
+    background:#efc9bf;
+    border-radius:22px;
+    height:58vh;
+    position:relative;
+    overflow:hidden;
+    margin-bottom:16px;
+}
+
+/* corner stripes */
+
+.corner-stripes{
+    position:absolute;
+    top:0;
+    left:0;
+    width:420px;
+    z-index:3;
+}
+
+.stripe{
+    height:42px;
+    border-bottom-right-radius:90px;
+}
+
+.red-strip{
+    background:#ff3131;
+}
+
+.yellow-strip{
+    background:#f5d34f;
+    margin-top:-2px;
+}
+
+.blue-strip{
+    background:#4595d4;
+    margin-top:-2px;
+}
+
+/* title */
+
+.product-title{
+    position:absolute;
+    top:120px;
+    left:70px;
+    font-size:72px;
+    font-weight:800;
+    color:#5d4c52;
+}
+
+/* desc */
+
+.product-desc{
+    position:absolute;
+    top:210px;
+    left:40px;
+    width:540px;
+    text-align:center;
+    font-size:22px;
+    line-height:1.45;
+    font-weight:600;
+}
+
+/* product image */
+
+.product-image{
+    position:absolute;
+    left:48%;
+    top:52%;
+    transform:translate(-50%,-50%);
+    width:520px;
+}
+
+/* scent names */
+
+.jasmine{
+    position:absolute;
+    top:70px;
+    right:240px;
+    color:white;
+    font-size:58px;
+    font-weight:800;
+}
+
+.rose{
+    position:absolute;
+    top:220px;
+    right:120px;
+    color:#ff5d66;
+    font-size:62px;
+    font-weight:800;
+}
+
+.lavender{
+    position:absolute;
+    bottom:40px;
+    right:180px;
+    color:#9334d9;
+    font-size:72px;
+    font-weight:800;
+}
+
+/* bottom grid */
+
+.bottom-grid{
+    display:flex;
+    gap:16px;
+}
+
+/* natural box */
+
+.natural-box{
+    flex:2;
+    background:#efc9bf;
+    border-radius:22px;
+    position:relative;
+    min-height:380px;
+    overflow:hidden;
+}
+
+/* tawas box */
+
+.tawas-box{
+    flex:1;
+    background:#efc9bf;
+    border-radius:22px;
+    position:relative;
+    overflow:hidden;
+}
+
+.tawas-title{
+    position:absolute;
+    top:20px;
+    left:35px;
+    font-size:110px;
+    font-weight:800;
+    color:white;
+    z-index:2;
+}
+
+.tawas-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* flowers */
+
+.flower-left{
+    position:absolute;
+    width:170px;
+    top:10px;
+    left:10px;
+}
+
+.flower-right{
+    position:absolute;
+    width:170px;
+    top:15px;
+    right:40px;
+}
+
+.flower-bottom{
+    position:absolute;
+    width:180px;
+    bottom:10px;
+    right:10px;
+}
+
+/* scribble line */
+
+.curve-line{
+    position:absolute;
+    width:520px;
+    height:100%;
+    left:240px;
+    top:-30px;
+}
+
+.curve-line svg{
+    width:100%;
+    height:100%;
+}
+
+.curve-line path{
+    fill:none;
+    stroke:black;
+    stroke-width:2;
+}
+
+/* natural text */
+
+.natural-text{
+    position:absolute;
+    bottom:45px;
+    left:35px;
+    font-size:70px;
+    font-weight:900;
+    color:black;
+}
+    
 /* =====================
 RESPONSIVE
 ===================== */
@@ -284,6 +501,87 @@ RESPONSIVE
         </div>
 
     </section>
+
+    <!-- PAGE 2 -->
+<section class="page2">
+
+    <div class="product-top">
+
+        <div class="corner-stripes">
+            <div class="stripe red-strip"></div>
+            <div class="stripe yellow-strip"></div>
+            <div class="stripe blue-strip"></div>
+        </div>
+
+        <div class="product-title">
+            Deododo
+        </div>
+
+        <div class="product-desc">
+            Deododo adalah deodoran spray yang menggunakan
+            tawas sebagai bahan utamanya.
+            <br>
+            Dengan 3 rasa yang bisa dipilih dari
+            Jasmine hingga Lavender pasti akan
+            menemani anda sepanjang hari.
+        </div>
+
+        <img src="produk-page2.png"
+        class="product-image"
+        alt="Produk">
+
+        <div class="jasmine">Jasmine</div>
+        <div class="rose">Rose</div>
+        <div class="lavender">Lavender</div>
+
+    </div>
+
+    <div class="bottom-grid">
+
+        <div class="natural-box">
+
+            <img src="rose.png"
+            class="flower-left">
+
+            <img src="jasmine.png"
+            class="flower-right">
+
+            <img src="lavender.png"
+            class="flower-bottom">
+
+            <div class="curve-line">
+                <svg viewBox="0 0 600 400">
+
+                    <path d="
+                    M120 0
+                    C20 120 250 120 180 180
+                    C120 230 250 250 320 310
+                    C420 390 450 450 520 520
+                    " />
+
+                </svg>
+            </div>
+
+            <div class="natural-text">
+                MENGGUNAKAN BAHAN ALAMI
+            </div>
+
+        </div>
+
+        <div class="tawas-box">
+
+            <div class="tawas-title">
+                TAWAS
+            </div>
+
+            <img src="tawas.jpg"
+            class="tawas-image">
+
+        </div>
+
+    </div>
+
+</section>
 
 <!-- DIVIDER -->
 <div class="divider">
