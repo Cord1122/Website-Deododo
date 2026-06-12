@@ -25,7 +25,7 @@ html{
 }
 
 /* =====================
-DESKTOP VERSION (LAYAR > 768px) - TIDAK DIUBAH
+DESKTOP VERSION (LAYAR > 768px)
 ===================== */
 
 .desktop-only {
@@ -118,7 +118,10 @@ DESKTOP VERSION (LAYAR > 768px) - TIDAK DIUBAH
     line-height:1.35;
 }
 
-/* GARIS PEMBATAS DESKTOP */
+/* =====================
+GARIS PEMBATAS DI TENGAH (KIRI & KANAN)
+ANIMASI: GARIS MUNCUL DULU, BARU KONTEN
+===================== */
 .divider{
     position:absolute;
     left:50%;
@@ -145,6 +148,7 @@ DESKTOP VERSION (LAYAR > 768px) - TIDAK DIUBAH
     animation:drawLineCenter 2.8s ease forwards;
 }
 
+/* Warna garis */
 .red{
     stroke:#ff3131;
     stroke-width:34;
@@ -160,6 +164,7 @@ DESKTOP VERSION (LAYAR > 768px) - TIDAK DIUBAH
     stroke-width:34;
 }
 
+/* ANIMASI GARIS DARI BAWAH KE ATAS (MENJADI PEMBATAS TENGAH) */
 @keyframes drawLineCenter {
     0% {
         stroke-dashoffset: 1800;
@@ -169,7 +174,9 @@ DESKTOP VERSION (LAYAR > 768px) - TIDAK DIUBAH
     }
 }
 
-/* PAGE 2 DESKTOP */
+/* =====================
+PAGE 2 DESKTOP
+===================== */
 .page2{
     width:100%;
     min-height:100vh;
@@ -366,7 +373,8 @@ DESKTOP VERSION (LAYAR > 768px) - TIDAK DIUBAH
 }
 
 /* =====================
-MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
+MOBILE VERSION (LAYAR ≤ 768px)
+YANG DIPERBAIKI SESUAI PERMINTAAN
 ===================== */
 
 @media(max-width: 768px){
@@ -430,15 +438,15 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
         stroke-linejoin: round;
     }
     
-    .divider-red-static {
+    .divider-red {
         stroke: #ff3131;
         stroke-width: 8;
     }
-    .divider-yellow-static {
+    .divider-yellow {
         stroke: #f5d34f;
         stroke-width: 8;
     }
-    .divider-blue-static {
+    .divider-blue {
         stroke: #4595d4;
         stroke-width: 8;
     }
@@ -664,53 +672,56 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
     .spacer-mobile {
         height: 20px;
     }
-}
-
-/* Responsive kecil */
-@media(max-width: 480px){
-    .mobile-question, .mobile-slogan {
-        font-size: 24px;
+    
+    /* Responsive kecil */
+    @media (max-width: 480px) {
+        .mobile-content {
+            padding: 30px 20px 50px;
+        }
+        .mobile-question, .mobile-slogan {
+            font-size: 24px;
+        }
+        .mobile-desc {
+            font-size: 14px;
+        }
+        .main-title-mobile {
+            font-size: 42px;
+        }
+        .flavor-name-mobile {
+            font-size: 24px;
+        }
+        .flavors-container-mobile {
+            gap: 16px;
+        }
+        .natural-text-mobile {
+            font-size: 22px;
+        }
+        .tawas-title-mobile {
+            font-size: 44px;
+        }
+        .tawas-image-mobile {
+            width: 85px;
+        }
+        .description-mobile {
+            font-size: 13px;
+            padding: 14px;
+        }
     }
-    .mobile-desc {
-        font-size: 14px;
-    }
-    .main-title-mobile {
-        font-size: 42px;
-    }
-    .flavor-name-mobile {
-        font-size: 24px;
-    }
-    .flavors-container-mobile {
-        gap: 16px;
-    }
-    .natural-text-mobile {
-        font-size: 22px;
-    }
-    .tawas-title-mobile {
-        font-size: 44px;
-    }
-    .tawas-image-mobile {
-        width: 85px;
-    }
-    .description-mobile {
-        font-size: 13px;
-        padding: 14px;
-    }
-}
-
-@media(max-width: 380px){
-    .tawas-card-mobile {
-        flex-direction: column;
-        text-align: center;
-    }
-    .flavor-name-mobile {
-        font-size: 20px;
-    }
-    .main-title-mobile {
-        font-size: 36px;
-    }
-    .natural-text-mobile {
-        font-size: 18px;
+    
+    @media (max-width: 380px) {
+        .tawas-card-mobile {
+            flex-direction: column;
+            text-align: center;
+        }
+        .flavor-name-mobile {
+            font-size: 20px;
+        }
+        .main-title-mobile {
+            font-size: 36px;
+        }
+        .natural-text-mobile {
+            font-size: 18px;
+        }
     }
 }
 
@@ -718,7 +729,7 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
 </head>
 <body>
 
-<!-- ===================== DESKTOP VERSION (TIDAK DIUBAH) ===================== -->
+<!-- ===================== DESKTOP VERSION (TIDAK BERUBAH) ===================== -->
 <div class="desktop-only">
     <div class="hero">
         <section class="left" id="leftSection">
@@ -742,6 +753,7 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
             </div>
         </section>
 
+        <!-- GARIS PEMBATAS DI TENGAH (KIRI & KANAN) -->
         <div class="divider" id="dividerLine">
             <svg viewBox="0 0 240 1000" preserveAspectRatio="none">
                 <path class="line red"
@@ -808,24 +820,24 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
     <!-- MOBILE PAGE 1 (HERO) -->
     <div class="mobile-hero">
         
-        <!-- Gambar produk di atas -->
+        <!-- GAMBAR PRODUK DI ATAS -->
         <div class="mobile-product-image">
             <img src="produk.jpg" alt="Deododo Produk">
         </div>
 
-        <!-- GARIS PEMBATAS MOBILE (TANPA ANIMASI, DI TENGAH) -->
+        <!-- GARIS PEMBATAS 3 WARNA (TANPA ANIMASI) -->
         <div class="mobile-divider">
             <svg viewBox="0 0 300 30" preserveAspectRatio="none">
-                <path class="divider-line-static divider-red-static" 
-                      d="M 0 8 L 300 8" />
-                <path class="divider-line-static divider-yellow-static" 
+                <path class="divider-line-static divider-red" 
                       d="M 0 15 L 300 15" />
-                <path class="divider-line-static divider-blue-static" 
-                      d="M 0 22 L 300 22" />
+                <path class="divider-line-static divider-yellow" 
+                      d="M 0 20 L 300 20" />
+                <path class="divider-line-static divider-blue" 
+                      d="M 0 25 L 300 25" />
             </svg>
         </div>
 
-        <!-- Konten teks di bawah -->
+        <!-- KONTEN TEKS DI BAWAH (KALIMAT TERAKHIR TERLIHAT) -->
         <div class="mobile-content">
             <img src="logo.png" class="mobile-logo" alt="Deododo Logo">
             <div class="mobile-question">
@@ -861,7 +873,7 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
             Dengan 3 rasa yang bisa dipilih dari Jasmine hingga Lavender pasti akan menemani anda sepanjang hari.
         </div>
 
-        <!-- 3 RASA -->
+        <!-- 3 RASA (Jasmine, Rose, Lavender) -->
         <div class="flavors-container-mobile">
             <div class="flavor-item-mobile">
                 <div class="flavor-name-mobile flavor-jasmine-mobile">Jasmine</div>
@@ -921,7 +933,7 @@ MOBILE VERSION (LAYAR ≤ 768px) - DIPERBAIKI SESUAI PERMINTAAN
 </div>
 
 <script>
-// Animasi untuk desktop (TIDAK DIUBAH)
+// Animasi untuk desktop (TIDAK BERUBAH)
 setTimeout(() => {
     const leftElem = document.getElementById("leftSection");
     const rightElem = document.getElementById("rightSection");
