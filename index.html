@@ -1,66 +1,335 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Deododo</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            text-align: center;
-        }
+<title>Deododo</title>
 
-        header {
-            background: #2d89ef;
-            color: white;
-            padding: 40px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .container {
-            margin: 50px auto;
-            width: 80%;
-            max-width: 700px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
+<style>
 
-        button {
-            background: #2d89ef;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        button:hover {
-            opacity: 0.9;
-        }
-    </style>
+body{
+    overflow:hidden;
+    background:#f7d4e1;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+    width:100%;
+    height:100vh;
+    display:flex;
+    position:relative;
+}
+
+/* ===== LEFT SIDE ===== */
+
+.left-side{
+    width:48%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:#f7f2ef;
+}
+
+.left-side img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    animation:productZoom 2s ease forwards;
+    filter:brightness(1.02);
+}
+
+.left-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        to right,
+        rgba(255,255,255,0.05),
+        rgba(255,255,255,0.2)
+    );
+}
+
+/* ===== MIDDLE DIVIDER ===== */
+
+.divider-container{
+    width:180px;
+    height:100vh;
+    position:absolute;
+    left:44%;
+    z-index:5;
+    overflow:visible;
+}
+
+svg{
+    width:100%;
+    height:100%;
+}
+
+/* garis dasar */
+.base-line{
+    fill:none;
+    stroke-width:36;
+    opacity:0.25;
+}
+
+/* animasi isi */
+.animate-line{
+    fill:none;
+    stroke-width:36;
+    stroke-linecap:round;
+    stroke-dasharray:1600;
+    stroke-dashoffset:-1600;
+    animation:drawLine 4.2s ease forwards;
+}
+
+.red{
+    stroke:#ff3030;
+}
+
+.yellow{
+    stroke:#f4d64d;
+}
+
+.blue{
+    stroke:#4896cf;
+}
+
+/* ===== RIGHT SIDE ===== */
+
+.right-side{
+    width:52%;
+    height:100vh;
+    background:#f6c9d8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.content{
+    width:80%;
+    max-width:700px;
+    text-align:center;
+    animation:fadeIn 1.8s ease;
+}
+
+.logo{
+    width:450px;
+    max-width:90%;
+    margin-bottom:30px;
+    filter:drop-shadow(0 5px 15px rgba(0,0,0,0.08));
+}
+
+.question{
+    font-size:clamp(30px, 4vw, 64px);
+    font-weight:700;
+    color:#111;
+    margin-bottom:10px;
+}
+
+.slogan{
+    font-family:'Fredoka',sans-serif;
+    font-size:clamp(30px, 3vw, 52px);
+    color:white;
+    font-weight:600;
+    margin-bottom:60px;
+}
+
+.desc{
+    font-size:clamp(18px,1.7vw,32px);
+    line-height:1.6;
+    color:#222;
+    font-weight:400;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes productZoom{
+    from{
+        transform:scale(1.08);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/*
+loading bawah ke atas
+ada sedikit jeda di tikungan
+tidak looping
+*/
+@keyframes drawLine{
+
+    /* mulai kosong dari bawah */
+    0%{
+        stroke-dashoffset:-1600;
+    }
+
+    /* naik sampai belokan bawah */
+    38%{
+        stroke-dashoffset:-950;
+    }
+
+    /* pause kecil di tikungan */
+    52%{
+        stroke-dashoffset:-950;
+    }
+
+    /* lanjut isi ke atas */
+    100%{
+        stroke-dashoffset:0;
+    }
+}
+    
+/* ===== MOBILE ===== */
+
+@media (max-width:900px){
+
+    body{
+        overflow:auto;
+    }
+
+    .hero{
+        flex-direction:column;
+        height:auto;
+    }
+
+    .left-side{
+        width:100%;
+        height:45vh;
+    }
+
+    .divider-container{
+        display:none;
+    }
+
+    .right-side{
+        width:100%;
+        min-height:55vh;
+        padding:60px 25px;
+    }
+
+    .content{
+        width:100%;
+    }
+
+    .question{
+        margin-top:10px;
+    }
+
+    .slogan{
+        margin-bottom:35px;
+    }
+}
+
+</style>
 </head>
 <body>
 
-<header>
-    <h1>Website Deododo</h1>
-    <p>Selamat datang di website saya</p>
-</header>
+<section class="hero">
 
-<div class="container">
-    <h2>Tentang Website</h2>
-    <p>
-        Ini adalah website pertama saya yang dibuat menggunakan GitHub Pages.
-    </p>
+    <!-- LEFT -->
+    <div class="left-side">
 
-    <button onclick="alert('Halo! Terima kasih sudah mengunjungi website ini')">
-        Klik Saya
-    </button>
-</div>
+        <img src="produk.jpg" alt="Produk Deododo">
+
+        <div class="left-overlay"></div>
+
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="divider-container">
+
+        <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
+
+            <!-- base line -->
+            <path class="base-line red"
+            d="M95 0 
+               C95 200 95 520 70 780
+               C60 890 20 960 0 1000"/>
+
+            <path class="base-line yellow"
+            d="M125 0 
+               C125 200 125 520 100 780
+               C90 890 50 960 30 1000"/>
+
+            <path class="base-line blue"
+            d="M155 0 
+               C155 200 155 520 130 780
+               C120 890 80 960 60 1000"/>
+
+            <!-- animated -->
+            <path class="animate-line red"
+            d="M95 0 
+               C95 200 95 520 70 780
+               C60 890 20 960 0 1000"/>
+
+            <path class="animate-line yellow"
+            d="M125 0 
+               C125 200 125 520 100 780
+               C90 890 50 960 30 1000"/>
+
+            <path class="animate-line blue"
+            d="M155 0 
+               C155 200 155 520 130 780
+               C120 890 80 960 60 1000"/>
+
+        </svg>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-side">
+
+        <div class="content">
+
+            <img src="logo.png"
+            class="logo"
+            alt="Logo Deododo">
+
+            <h1 class="question">
+                Tiny spray, big difference?
+            </h1>
+
+            <div class="slogan">
+                Glow up, smell up!
+            </div>
+
+            <p class="desc">
+                Kunjungi FK-1 untuk mendapatkan
+                deodoran mini ini!
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 </body>
 </html>
