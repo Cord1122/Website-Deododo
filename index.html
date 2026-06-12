@@ -175,6 +175,19 @@ DESKTOP VERSION (DEFAULT)
     }
 }
 
+/* =====================
+MOBILE STRIPE LOADING BAR ANIMATIONS
+===================== */
+@keyframes loadBar{
+    0%{ width: 0%; }
+    100%{ width: 100%; }
+}
+
+@keyframes mobileHeroFadeIn{
+    0%{ opacity: 0; }
+    100%{ opacity: 1; }
+}
+
 .page2{
     width:100%;
     min-height:100vh;
@@ -382,6 +395,11 @@ MOBILE-ONLY ELEMENTS
     display: none;
 }
 
+/* Mobile stripe divider - hanya tampil di mobile */
+.mobile-stripe-divider{
+    display: none;
+}
+
 /* =====================
 RESPONSIVE: TABLET (max-width: 900px)
 ===================== */
@@ -459,6 +477,7 @@ RESPONSIVE: MOBILE/HP (max-width: 768px)
         width: 100%;
         height: auto;
         background: #f3e1e8;
+        opacity: 0;
     }
     .mobile-hero-image img{
         width: 100%;
@@ -466,10 +485,46 @@ RESPONSIVE: MOBILE/HP (max-width: 768px)
         display: block;
         object-fit: cover;
     }
-    
+
+    /* Stripe divider mobile */
+    .mobile-stripe-divider{
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+    .mobile-stripe-divider .msd-bar{
+        height: 22px;
+        width: 0%;
+        border-radius: 0;
+    }
+    .mobile-stripe-divider .msd-red{
+        background: #ff3131;
+        animation: loadBar 0.6s ease forwards;
+        animation-delay: 0s;
+    }
+    .mobile-stripe-divider .msd-yellow{
+        background: #f5d34f;
+        animation: loadBar 0.6s ease forwards;
+        animation-delay: 0.5s;
+    }
+    .mobile-stripe-divider .msd-blue{
+        background: #4595d4;
+        animation: loadBar 0.6s ease forwards;
+        animation-delay: 1s;
+    }
+
+    /* Gambar produk mobile: mulai transparan */
+    .mobile-hero-image.loaded{
+        animation: mobileHeroFadeIn 0.8s ease forwards;
+    }
+
     .right{
         width: 100%;
         min-height: 50vh;
+        opacity: 0;
+    }
+    .right.loaded{
+        animation: mobileHeroFadeIn 0.8s ease forwards;
     }
     .divider{
         display: none;
@@ -748,8 +803,15 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 <div class="hero">
 
     <!-- GAMBAR KHUSUS MOBILE (HANYA TAMPIL DI HP) -->
-    <div class="mobile-hero-image">
+    <div class="mobile-hero-image" id="mobileHeroImg">
         <img src="produk.jpg" alt="Deododo Mobile Banner">
+    </div>
+
+    <!-- STRIPE DIVIDER MOBILE (loading bar animasi) -->
+    <div class="mobile-stripe-divider">
+        <div class="msd-bar msd-red"></div>
+        <div class="msd-bar msd-yellow"></div>
+        <div class="msd-bar msd-blue"></div>
     </div>
 
     <!-- GAMBAR DESKTOP (HANYA TAMPIL DI KOMPUTER) -->
@@ -892,11 +954,29 @@ MOBILE EKSTRA KECIL (max-width: 480px)
 
 <script>
 
+// ====== DESKTOP: fade in kiri & kanan ======
 setTimeout(() => {
     const leftElem = document.getElementById("leftSection");
     if(leftElem) leftElem.classList.add("show");
     document.getElementById("rightSection").classList.add("show");
 }, 2300);
+
+// ====== MOBILE: stripe loading bar → fade in gambar & konten ======
+(function(){
+    const isMobile = window.innerWidth <= 768;
+    if(!isMobile) return;
+
+    const mobileImg = document.getElementById("mobileHeroImg");
+    const rightSection = document.getElementById("rightSection");
+
+    // Stripe selesai: delay 0s + 0.5s + 1s + durasi 0.6s = 1.6s total
+    const stripeDone = 1700; // sedikit margin
+
+    setTimeout(() => {
+        if(mobileImg) mobileImg.classList.add("loaded");
+        if(rightSection) rightSection.classList.add("loaded");
+    }, stripeDone);
+})();
 
 </script>
 
