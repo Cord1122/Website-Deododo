@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Deododo</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,149 +17,187 @@
     box-sizing:border-box;
 }
 
-body{
+html,body{
+    width:100%;
+    height:100%;
     overflow:hidden;
-    background:#f7d4e1;
     font-family:'Poppins',sans-serif;
+    background:white;
 }
 
-/* ===== HERO ===== */
+/* =======================
+MAIN CONTAINER
+======================= */
 
 .hero{
     width:100%;
     height:100vh;
     display:flex;
     position:relative;
+    overflow:hidden;
+    background:white;
 }
 
-/* ===== LEFT SIDE ===== */
+/* =======================
+LEFT SIDE
+======================= */
 
-.left-side{
-    width:48%;
-    height:100vh;
+.left{
+    width:50%;
+    height:100%;
     position:relative;
     overflow:hidden;
-    background:#f7f2ef;
+    opacity:0;
+    transform:translateY(-70px);
 }
 
-.left-side img{
+.left.show{
+    animation:leftReveal 1.2s ease forwards;
+}
+
+.left img{
     width:100%;
     height:100%;
     object-fit:cover;
-    animation:productZoom 2s ease forwards;
-    filter:brightness(1.02);
 }
 
-.left-overlay{
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(
-        to right,
-        rgba(255,255,255,0.05),
-        rgba(255,255,255,0.2)
-    );
-}
+/* =======================
+RIGHT SIDE
+======================= */
 
-/* ===== MIDDLE DIVIDER ===== */
-
-.divider-container{
-    width:180px;
-    height:100vh;
-    position:absolute;
-    left:44%;
-    z-index:5;
-    overflow:visible;
-}
-
-svg{
-    width:100%;
+.right{
+    width:50%;
     height:100%;
-}
-
-/* garis dasar */
-.base-line{
-    fill:none;
-    stroke-width:36;
-    opacity:0.25;
-}
-
-/* animasi isi */
-.animate-line{
-    fill:none;
-    stroke-width:36;
-    stroke-linecap:round;
-    stroke-dasharray:1600;
-    stroke-dashoffset:-1600;
-    animation:drawLine 4.2s ease forwards;
-}
-
-.red{
-    stroke:#ff3030;
-}
-
-.yellow{
-    stroke:#f4d64d;
-}
-
-.blue{
-    stroke:#4896cf;
-}
-
-/* ===== RIGHT SIDE ===== */
-
-.right-side{
-    width:52%;
-    height:100vh;
-    background:#f6c9d8;
+    background:#f5c6d5;
     display:flex;
     justify-content:center;
     align-items:center;
     position:relative;
+
+    opacity:0;
+    transform:translateY(70px);
+}
+
+.right.show{
+    animation:rightReveal 1.2s ease forwards;
 }
 
 .content{
     width:80%;
-    max-width:700px;
     text-align:center;
-    animation:fadeIn 1.8s ease;
+    margin-top:-20px;
 }
 
 .logo{
-    width:450px;
-    max-width:90%;
-    margin-bottom:30px;
-    filter:drop-shadow(0 5px 15px rgba(0,0,0,0.08));
+    width:78%;
+    max-width:650px;
+    margin-bottom:50px;
 }
 
 .question{
-    font-size:clamp(30px, 4vw, 64px);
-    font-weight:700;
-    color:#111;
-    margin-bottom:10px;
+    font-size:clamp(28px,3vw,62px);
+    font-weight:800;
+    color:black;
+    margin-bottom:15px;
 }
 
 .slogan{
-    font-family:'Fredoka',sans-serif;
-    font-size:clamp(30px, 3vw, 52px);
+    font-size:clamp(26px,2.8vw,58px);
+    font-weight:800;
     color:white;
-    font-weight:600;
-    margin-bottom:60px;
+    margin-bottom:130px;
 }
 
 .desc{
-    font-size:clamp(18px,1.7vw,32px);
-    line-height:1.6;
-    color:#222;
-    font-weight:400;
+    font-size:clamp(20px,1.8vw,38px);
+    font-weight:600;
+    line-height:1.4;
+    color:black;
 }
 
-/* ===== ANIMATION ===== */
+/* =======================
+DIVIDER OVERLAY
+======================= */
 
-@keyframes fadeIn{
+.divider{
+    position:absolute;
+    left:50%;
+    top:0;
+    transform:translateX(-50%);
+    width:350px;
+    height:100%;
+    z-index:999;
+    pointer-events:none;
+}
+
+.divider svg{
+    width:100%;
+    height:100%;
+}
+
+/* garis dasar transparan */
+.base{
+    fill:none;
+    stroke-width:36;
+    opacity:0;
+}
+
+/* garis animasi */
+.line{
+    fill:none;
+    stroke-width:36;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+
+    stroke-dasharray:1800;
+    stroke-dashoffset:-1800;
+
+    animation:drawLine 4.2s ease forwards;
+}
+
+.red{
+    stroke:#ff3131;
+}
+
+.yellow{
+    stroke:#f6d550;
+}
+
+.blue{
+    stroke:#4393d0;
+}
+
+/* =======================
+ANIMATIONS
+======================= */
+
+/* garis bawah ke atas + pause */
+@keyframes drawLine{
+
+    0%{
+        stroke-dashoffset:-1800;
+    }
+
+    /* sampai belokan */
+    40%{
+        stroke-dashoffset:-1050;
+    }
+
+    /* pause kecil */
+    54%{
+        stroke-dashoffset:-1050;
+    }
+
+    /* lanjut */
+    100%{
+        stroke-dashoffset:0;
+    }
+}
+
+@keyframes leftReveal{
     from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(-70px);
     }
     to{
         opacity:1;
@@ -167,48 +205,22 @@ svg{
     }
 }
 
-@keyframes productZoom{
+@keyframes rightReveal{
     from{
-        transform:scale(1.08);
         opacity:0;
+        transform:translateY(70px);
     }
     to{
-        transform:scale(1);
         opacity:1;
+        transform:translateY(0);
     }
 }
 
-/*
-loading bawah ke atas
-ada sedikit jeda di tikungan
-tidak looping
-*/
-@keyframes drawLine{
+/* =======================
+MOBILE
+======================= */
 
-    /* mulai kosong dari bawah */
-    0%{
-        stroke-dashoffset:-1600;
-    }
-
-    /* naik sampai belokan bawah */
-    38%{
-        stroke-dashoffset:-950;
-    }
-
-    /* pause kecil di tikungan */
-    52%{
-        stroke-dashoffset:-950;
-    }
-
-    /* lanjut isi ke atas */
-    100%{
-        stroke-dashoffset:0;
-    }
-}
-    
-/* ===== MOBILE ===== */
-
-@media (max-width:900px){
+@media(max-width:900px){
 
     body{
         overflow:auto;
@@ -219,92 +231,57 @@ tidak looping
         height:auto;
     }
 
-    .left-side{
+    .left{
         width:100%;
         height:45vh;
     }
 
-    .divider-container{
-        display:none;
-    }
-
-    .right-side{
+    .right{
         width:100%;
         min-height:55vh;
-        padding:60px 25px;
+        padding:50px 25px;
+    }
+
+    .divider{
+        display:none;
     }
 
     .content{
         width:100%;
     }
 
+    .logo{
+        width:90%;
+        margin-bottom:30px;
+    }
+
     .question{
-        margin-top:10px;
+        margin-bottom:8px;
     }
 
     .slogan{
-        margin-bottom:35px;
+        margin-bottom:50px;
+    }
+
+    .desc{
+        font-size:22px;
     }
 }
 
 </style>
 </head>
+
 <body>
 
-<section class="hero">
+<div class="hero">
 
     <!-- LEFT -->
-    <div class="left-side">
-
+    <section class="left" id="leftSection">
         <img src="produk.jpg" alt="Produk Deododo">
-
-        <div class="left-overlay"></div>
-
-    </div>
-
-    <!-- DIVIDER -->
-    <div class="divider-container">
-
-        <svg viewBox="0 0 180 1000" preserveAspectRatio="none">
-
-            <!-- base line -->
-            <path class="base-line red"
-            d="M95 0 
-               C95 200 95 520 70 780
-               C60 890 20 960 0 1000"/>
-
-            <path class="base-line yellow"
-            d="M125 0 
-               C125 200 125 520 100 780
-               C90 890 50 960 30 1000"/>
-
-            <path class="base-line blue"
-            d="M155 0 
-               C155 200 155 520 130 780
-               C120 890 80 960 60 1000"/>
-
-            <!-- animated -->
-            <path class="animate-line red"
-            d="M95 0 
-               C95 200 95 520 70 780
-               C60 890 20 960 0 1000"/>
-
-            <path class="animate-line yellow"
-            d="M125 0 
-               C125 200 125 520 100 780
-               C90 890 50 960 30 1000"/>
-
-            <path class="animate-line blue"
-            d="M155 0 
-               C155 200 155 520 130 780
-               C120 890 80 960 60 1000"/>
-
-        </svg>
-
-    </div>
+    </section>
 
     <!-- RIGHT -->
-    <div class="right-side">
+    <section class="right" id="rightSection">
 
         <div class="content">
 
@@ -320,16 +297,75 @@ tidak looping
                 Glow up, smell up!
             </div>
 
-            <p class="desc">
+            <div class="desc">
                 Kunjungi FK-1 untuk mendapatkan
+                <br>
                 deodoran mini ini!
-            </p>
+            </div>
 
         </div>
 
+    </section>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+
+        <svg viewBox="0 0 350 1000" preserveAspectRatio="none">
+
+            <!-- RED -->
+            <path class="line red"
+            d="
+            M 170 0
+            L 120 180
+            L 60 850
+            Q 45 920 0 1000
+            "/>
+
+            <!-- YELLOW -->
+            <path class="line yellow"
+            d="
+            M 210 0
+            L 160 180
+            L 100 850
+            Q 85 920 40 1000
+            "/>
+
+            <!-- BLUE -->
+            <path class="line blue"
+            d="
+            M 250 0
+            L 200 180
+            L 140 850
+            Q 125 920 80 1000
+            "/>
+
+        </svg>
+
     </div>
 
-</section>
+</div>
+
+<script>
+
+/*
+setelah garis selesai
+baru kiri & kanan muncul
+bersamaan
+*/
+
+setTimeout(() => {
+
+    document
+    .getElementById("leftSection")
+    .classList.add("show");
+
+    document
+    .getElementById("rightSection")
+    .classList.add("show");
+
+}, 4100);
+
+</script>
 
 </body>
 </html>
