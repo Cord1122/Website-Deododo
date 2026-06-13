@@ -999,10 +999,25 @@ FIX LANDSCAPE TABLET + HP
     }
 
     /* 🔥 MATIKAN SEMUA POSITION ABSOLUTE DI MODE INI */
-    .product-top *{
-        position: static !important;
+   @media (max-width: 1024px) and (orientation: landscape){
+
+    .product-title,
+    .product-desc,
+    .product-image{
+        position: relative !important;
         transform: none !important;
     }
+
+    .curve-line{
+        display: none;
+    }
+
+    .jasmine,
+    .rose,
+    .lavender{
+        display: none;
+    }
+}
 
     /* khusus elemen penting tetap rapi */
     .product-title{
