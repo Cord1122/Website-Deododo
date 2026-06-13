@@ -982,6 +982,66 @@ FIX LANDSCAPE TABLET + HP
     }
 }
 
+    @media (max-width: 1024px) and (orientation: landscape){
+
+    /* 🔥 paksa reset semua layout page2 biar tidak tabrakan */
+    .page2{
+        padding: 12px 14px !important;
+    }
+
+    .product-top{
+        height: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px;
+    }
+
+    /* 🔥 MATIKAN SEMUA POSITION ABSOLUTE DI MODE INI */
+    .product-top *{
+        position: static !important;
+        transform: none !important;
+    }
+
+    /* khusus elemen penting tetap rapi */
+    .product-title{
+        font-size: 28px !important;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .product-desc{
+        font-size: 13px !important;
+        text-align: center;
+    }
+
+    .product-image{
+        width: 180px !important;
+        margin: 10px auto;
+    }
+
+    .mobile-scent-wrapper{
+        flex-wrap: wrap !important;
+        justify-content: center;
+    }
+
+    /* 🔥 penting: hilangkan semua dekorasi berat */
+    .flower-left,
+    .flower-right,
+    .flower-bottom,
+    .curve-line,
+    .jasmine,
+    .rose,
+    .lavender{
+        display: none !important;
+    }
+
+    .bottom-grid{
+        flex-direction: column !important;
+    }
+}
+
 </style>
 </head>
 <body>
