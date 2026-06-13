@@ -830,6 +830,140 @@ MOBILE EKSTRA KECIL (max-width: 480px)
     }
 }
 
+    /* =========================
+FIX LANDSCAPE TABLET + HP
+========================= */
+@media (max-width: 1024px) and (orientation: landscape){
+
+    /* HERO jadi lebih fleksibel */
+    .hero{
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    /* hilangkan efek tinggi paksa */
+    .left, .right{
+        height: auto;
+        min-height: auto;
+    }
+
+    /* teks kanan tidak terlalu padat */
+    .content{
+        padding: 20px 0;
+    }
+
+    .logo{
+        width: 45%;
+        margin-bottom: 12px;
+    }
+
+    .question{
+        font-size: 22px;
+    }
+
+    .slogan{
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .desc{
+        font-size: 14px;
+    }
+
+    /* ===== PAGE 2 FIX ===== */
+    .product-top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding-bottom: 20px;
+    }
+
+    /* HAPUS efek "tabrakan absolute" */
+    .product-title,
+    .product-desc,
+    .product-image{
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+    }
+
+    .product-title{
+        font-size: 32px;
+        padding-top: 20px;
+    }
+
+    .product-desc{
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .product-image{
+        width: 200px;
+        margin-top: 10px;
+    }
+
+    /* Scent labels tidak numpuk */
+    .mobile-scent-wrapper{
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    /* bottom grid selalu vertikal */
+    .bottom-grid{
+        flex-direction: column;
+    }
+
+    .natural-box,
+    .tawas-box{
+        min-height: 260px;
+    }
+
+    .natural-text{
+        font-size: 28px;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+}
+
+    @media (max-height: 500px) and (orientation: landscape){
+
+    .hero{
+        min-height: auto;
+    }
+
+    .right{
+        min-height: auto;
+        padding: 10px 0;
+    }
+
+    .question{
+        font-size: 18px;
+    }
+
+    .slogan{
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .desc{
+        font-size: 12px;
+    }
+
+    .product-title{
+        font-size: 24px;
+    }
+
+    .product-image{
+        width: 160px;
+    }
+}
+
 </style>
 </head>
 <body>
