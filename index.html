@@ -198,10 +198,12 @@ MOBILE STRIPE LOADING BAR ANIMATIONS
 .product-top{
     background:#efc9bf;
     border-radius:22px;
-    height:58vh;
+    min-height:58vh;
+    height:auto;
     position:relative;
-    overflow:hidden;
+    overflow:visible;
     margin-bottom:16px;
+    padding-bottom:20px;
 }
 
 .corner-stripes{
@@ -871,14 +873,28 @@ FIX LANDSCAPE TABLET + HP
         font-size: 14px;
     }
 
+    .jasmine,
+.rose,
+.lavender,
+.flower-left,
+.flower-right,
+.flower-bottom{
+    position: absolute;
+    opacity: 0.4; /* atau 0 kalau mau total hilang */
+}
+
+    
+
     /* ===== PAGE 2 FIX ===== */
-    .product-top{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding-bottom: 20px;
-    }
+   .product-top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    min-height: auto;
+    padding-bottom: 30px;
+    overflow: visible;
+}
 
     /* HAPUS efek "tabrakan absolute" */
     .product-title,
