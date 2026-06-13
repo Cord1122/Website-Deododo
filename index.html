@@ -175,19 +175,6 @@ DESKTOP VERSION (DEFAULT)
     }
 }
 
-/* =====================
-MOBILE STRIPE LOADING BAR ANIMATIONS
-===================== */
-@keyframes loadBar{
-    0%{ width: 0%; }
-    100%{ width: 100%; }
-}
-
-@keyframes mobileHeroFadeIn{
-    0%{ opacity: 0; }
-    100%{ opacity: 1; }
-}
-
 .page2{
     width:100%;
     min-height:100vh;
@@ -395,15 +382,10 @@ MOBILE-ONLY ELEMENTS
     display: none;
 }
 
-/* Mobile stripe divider - hanya tampil di mobile */
-.mobile-stripe-divider{
-    display: none;
-}
-
 /* =====================
 RESPONSIVE: TABLET (max-width: 900px)
 ===================== */
-@media(max-width: 900px) and (orientation: landscape), (min-width: 501px) and (max-width: 900px) and (orientation: portrait){
+@media(max-width: 900px){
     .product-title{
         font-size: 52px;
         top: 70px;
@@ -454,370 +436,309 @@ RESPONSIVE: TABLET (max-width: 900px)
     }
 }
 
-/* Tablet landscape khusus: perbesar product-top supaya tidak overflow */
-@media(min-width: 700px) and (max-width: 1100px) and (orientation: landscape){
-    .product-top{
-        height: 65vh;
+/* =====================
+RESPONSIVE: MOBILE/HP (max-width: 768px)
+===================== */
+@media(max-width: 768px){
+    
+    /* HERO SECTION - vertikal */
+    .hero{
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
     }
+    
+    /* SEMBUNYIKAN gambar desktop di hero */
+    .left{
+        display: none;
+    }
+    
+    /* TAMPILKAN gambar mobile di hero */
+    .mobile-hero-image{
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #f3e1e8;
+    }
+    .mobile-hero-image img{
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+    
+    .right{
+        width: 100%;
+        min-height: 50vh;
+    }
+    .divider{
+        display: none;
+    }
+    .content{
+        width: 90%;
+        padding: 30px 0;
+    }
+    .logo{
+        width: 60%;
+        margin-bottom: 20px;
+    }
+    .question{
+        font-size: 28px;
+    }
+    .slogan{
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    .desc{
+        font-size: 16px;
+    }
+
+    /* PAGE 2 */
+    .page2{
+        padding: 12px 16px;
+    }
+
+    /* ===== PRODUCT TOP: mobile layout ===== */
+    .product-top{
+        height: auto;
+        min-height: unset;
+        padding: 0 0 28px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    /* corner stripes tetap */
+    .corner-stripes{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 180px;
+        z-index: 3;
+    }
+    .stripe{
+        height: 26px;
+    }
+
+    /* Bunga jasmine pojok kanan atas - tampil di mobile */
+    .flower-right{
+        position: absolute;
+        width: 110px;
+        top: 0px;
+        right: 0px;
+        left: auto;
+        bottom: auto;
+    }
+
+    /* Sembunyikan flower-left & flower-bottom dari product-top di mobile
+       (mereka ada di natural-box, kita handle di mobile-bottom-card) */
+    .natural-box .flower-left,
+    .natural-box .flower-bottom{
+        display: none;
+    }
+
+    /* title relative */
     .product-title{
-        font-size: 56px;
-        top: 80px;
-        left: 25px;
+        position: relative;
+        top: 0;
+        left: 0;
+        text-align: center;
+        font-size: 38px;
+        font-weight: 800;
+        color: #5d4c52;
+        padding-top: 90px;
+        margin-bottom: 0;
+        width: 100%;
+        order: 1;
+    }
+
+    /* desc relative */
+    .product-desc{
+        position: relative;
+        top: 0;
+        left: 0;
+        font-size: 13px;
+        padding: 10px 24px;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+        order: 2;
+    }
+
+    /* gambar produk */
+    .product-image{
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        width: 240px;
+        margin: 16px auto 0;
+        display: block;
+        order: 3;
+    }
+
+    /* curve line di product-top */
+    .curve-line{
+        display: none;
+    }
+
+    /* Sembunyikan scent labels desktop */
+    .jasmine, .rose, .lavender{
+        display: none;
+    }
+
+    /* MOBILE SCENT BADGES - outline style seperti gambar */
+    .mobile-scent-wrapper{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+        margin: 18px 16px 0;
+        order: 4;
+    }
+    .mobile-scent{
+        font-size: 18px;
+        font-weight: 700;
+        padding: 8px 20px;
+        border-radius: 50px;
+        background: transparent;
+        border: 2px solid rgba(180,140,150,0.55);
+        color: #7a6060;
+        letter-spacing: 0.01em;
+    }
+    .mobile-scent-jasmine{ color: #9a7070; border-color: rgba(160,120,130,0.5); }
+    .mobile-scent-rose{ color: #d96070; border-color: rgba(210,100,110,0.5); }
+    .mobile-scent-lavender{ color: #8845c0; border-color: rgba(140,80,200,0.45); }
+
+    /* ===== BOTTOM GRID MOBILE: satu kartu gabungan ===== */
+
+    /* Sembunyikan desktop bottom grid */
+    .bottom-grid{
+        display: none;
+    }
+
+    /* Tampilkan mobile bottom card */
+    .mobile-bottom-card{
+        display: block;
+        background: #ffd3c4;
+        border-radius: 22px;
+        position: relative;
+        overflow: hidden;
+        min-height: 420px;
+        margin-top: 0;
+    }
+
+    .mobile-bottom-card .mbc-header{
+        padding: 22px 20px 0 20px;
+        font-size: 22px;
+        font-weight: 900;
+        color: black;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        position: relative;
+        z-index: 4;
+    }
+
+    .mobile-bottom-card .mbc-tawas-text{
+        position: absolute;
+        top: 70px;
+        left: 16px;
+        text-align: left;
+        font-size: 96px;
+        font-weight: 900;
+        color: rgba(255,255,255,0.75);
+        line-height: 1;
+        z-index: 4;
+        letter-spacing: -2px;
+    }
+
+    .mobile-bottom-card .mbc-tawas-image{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 72%;
+        max-width: 280px;
+        z-index: 3;
+        object-fit: contain;
+        border-bottom-left-radius: 22px;
+    }
+
+    /* Bunga rose kanan atas */
+    .mobile-bottom-card .mbc-flower-rose{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 90px;
+        z-index: 3;
+    }
+
+    /* Bunga lavender kanan bawah */
+    .mobile-bottom-card .mbc-flower-lavender{
+        position: absolute;
+        bottom: 10px;
+        right: 8px;
+        width: 80px;
+        z-index: 3;
+    }
+}
+
+/* =====================
+MOBILE EKSTRA KECIL (max-width: 480px)
+===================== */
+@media(max-width: 480px){
+    .product-title{
+        font-size: 30px;
+        padding-top: 80px;
     }
     .product-desc{
-        font-size: 16px;
-        top: 170px;
-        left: 25px;
-        width: 420px;
+        font-size: 12px;
+        padding: 8px 18px;
     }
     .product-image{
-        width: 340px;
-        left: 52%;
-        top: 54%;
+        width: 190px;
+        margin-top: 12px;
     }
-    .jasmine{
-        font-size: 38px;
-        right: 130px;
-        top: 55px;
-    }
-    .rose{
-        font-size: 42px;
-        right: 60px;
-        top: 185px;
-    }
-    .lavender{
-        font-size: 46px;
-        right: 80px;
-        bottom: 45px;
-    }
-    .bottom-grid{
-        display: flex;
-    }
-    .mobile-bottom-card{
-        display: none;
+    .mobile-scent{
+        font-size: 15px;
+        padding: 6px 14px;
     }
     .mobile-scent-wrapper{
-        display: none;
+        gap: 7px;
+        margin: 14px 12px 0;
     }
-    .bottom-grid .natural-box,
-    .bottom-grid .tawas-box{
-        min-height: 300px;
+    .mobile-bottom-card .mbc-header{
+        font-size: 18px;
+        padding: 18px 16px 0 16px;
     }
-    .natural-text{
-        font-size: 34px;
-        white-space: normal;
-        bottom: 18px;
-        left: 18px;
-        right: 18px;
-        text-align: center;
-    }
-    .tawas-title{
+    .mobile-bottom-card .mbc-tawas-text{
         font-size: 72px;
+        top: 60px;
+        left: 14px;
     }
-    .flower-left{
-        width: 110px;
+    .mobile-bottom-card .mbc-tawas-image{
+        width: 68%;
     }
-    .flower-right{
-        width: 110px;
-        right: 20px;
+    .mobile-bottom-card .mbc-flower-rose{
+        width: 70px;
     }
-    .flower-bottom{
-        width: 110px;
+    .mobile-bottom-card .mbc-flower-lavender{
+        width: 65px;
     }
-}
-
-/* =====================
-MOBILE MODE — dikontrol via JS (html.mobile-mode)
-Berlaku untuk HP portrait. Tablet landscape selalu desktop.
-===================== */
-html.mobile-mode .hero{
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-}
-html.mobile-mode .left{
-    display: none;
-}
-html.mobile-mode .mobile-hero-image{
-    display: block;
-    width: 100%;
-    height: auto;
-    background: #f3e1e8;
-    opacity: 0;
-}
-html.mobile-mode .mobile-hero-image img{
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-html.mobile-mode .mobile-stripe-divider{
-    display: block;
-    width: 100%;
-    overflow: hidden;
-}
-html.mobile-mode .mobile-stripe-divider .msd-bar{
-    height: 22px;
-    width: 0%;
-    border-radius: 0;
-}
-html.mobile-mode .mobile-stripe-divider .msd-red{
-    background: #ff3131;
-    animation: loadBar 0.6s ease forwards;
-    animation-delay: 0s;
-}
-html.mobile-mode .mobile-stripe-divider .msd-yellow{
-    background: #f5d34f;
-    animation: loadBar 0.6s ease forwards;
-    animation-delay: 0.5s;
-}
-html.mobile-mode .mobile-stripe-divider .msd-blue{
-    background: #4595d4;
-    animation: loadBar 0.6s ease forwards;
-    animation-delay: 1s;
-}
-html.mobile-mode .mobile-hero-image.loaded{
-    animation: mobileHeroFadeIn 0.8s ease forwards;
-}
-html.mobile-mode .right{
-    width: 100%;
-    min-height: 50vh;
-    opacity: 0;
-}
-html.mobile-mode .right.loaded{
-    animation: mobileHeroFadeIn 0.8s ease forwards;
-}
-html.mobile-mode .divider{
-    display: none;
-}
-html.mobile-mode .content{
-    width: 90%;
-    padding: 30px 0;
-}
-html.mobile-mode .logo{
-    width: 60%;
-    margin-bottom: 20px;
-}
-html.mobile-mode .question{
-    font-size: 28px;
-}
-html.mobile-mode .slogan{
-    font-size: 28px;
-    margin-bottom: 40px;
-}
-html.mobile-mode .desc{
-    font-size: 16px;
-}
-html.mobile-mode .page2{
-    padding: 12px 16px;
-}
-html.mobile-mode .product-top{
-    height: auto;
-    min-height: unset;
-    padding: 0 0 28px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-html.mobile-mode .corner-stripes{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 180px;
-    z-index: 3;
-}
-html.mobile-mode .stripe{
-    height: 26px;
-}
-html.mobile-mode .flower-right{
-    position: absolute;
-    width: 110px;
-    top: 0px;
-    right: 0px;
-    left: auto;
-    bottom: auto;
-}
-html.mobile-mode .natural-box .flower-left,
-html.mobile-mode .natural-box .flower-bottom{
-    display: none;
-}
-html.mobile-mode .product-title{
-    position: relative;
-    top: 0;
-    left: 0;
-    text-align: center;
-    font-size: 38px;
-    font-weight: 800;
-    color: #5d4c52;
-    padding-top: 90px;
-    margin-bottom: 0;
-    width: 100%;
-    order: 1;
-}
-html.mobile-mode .product-desc{
-    position: relative;
-    top: 0;
-    left: 0;
-    font-size: 13px;
-    padding: 10px 24px;
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-    order: 2;
-}
-html.mobile-mode .product-image{
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    width: 240px;
-    margin: 16px auto 0;
-    display: block;
-    order: 3;
-}
-html.mobile-mode .curve-line{
-    display: none;
-}
-html.mobile-mode .jasmine,
-html.mobile-mode .rose,
-html.mobile-mode .lavender{
-    display: none;
-}
-html.mobile-mode .mobile-scent-wrapper{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: nowrap;
-    margin: 18px 16px 0;
-    order: 4;
-}
-html.mobile-mode .mobile-scent{
-    font-size: 18px;
-    font-weight: 700;
-    padding: 8px 20px;
-    border-radius: 50px;
-    background: transparent;
-    border: 2px solid rgba(180,140,150,0.55);
-    color: #7a6060;
-    letter-spacing: 0.01em;
-}
-html.mobile-mode .mobile-scent-jasmine{ color: #9a7070; border-color: rgba(160,120,130,0.5); }
-html.mobile-mode .mobile-scent-rose{ color: #d96070; border-color: rgba(210,100,110,0.5); }
-html.mobile-mode .mobile-scent-lavender{ color: #8845c0; border-color: rgba(140,80,200,0.45); }
-html.mobile-mode .bottom-grid{
-    display: none;
-}
-html.mobile-mode .mobile-bottom-card{
-    display: block;
-    background: #ffd3c4;
-    border-radius: 22px;
-    position: relative;
-    overflow: hidden;
-    min-height: 420px;
-    margin-top: 0;
-}
-html.mobile-mode .mobile-bottom-card .mbc-header{
-    padding: 22px 20px 0 20px;
-    font-size: 22px;
-    font-weight: 900;
-    color: black;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    position: relative;
-    z-index: 4;
-}
-html.mobile-mode .mobile-bottom-card .mbc-tawas-text{
-    position: absolute;
-    top: 70px;
-    left: 16px;
-    text-align: left;
-    font-size: 96px;
-    font-weight: 900;
-    color: rgba(255,255,255,0.75);
-    line-height: 1;
-    z-index: 4;
-    letter-spacing: -2px;
-}
-html.mobile-mode .mobile-bottom-card .mbc-tawas-image{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 72%;
-    max-width: 280px;
-    z-index: 3;
-    object-fit: contain;
-    border-bottom-left-radius: 22px;
-}
-html.mobile-mode .mobile-bottom-card .mbc-flower-rose{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 90px;
-    z-index: 3;
-}
-html.mobile-mode .mobile-bottom-card .mbc-flower-lavender{
-    position: absolute;
-    bottom: 10px;
-    right: 8px;
-    width: 80px;
-    z-index: 3;
-}
-
-/* =====================
-MOBILE EKSTRA KECIL — layar < 414px
-===================== */
-html.mobile-mode.mobile-small .product-title{
-    font-size: 30px;
-    padding-top: 80px;
-}
-html.mobile-mode.mobile-small .product-desc{
-    font-size: 12px;
-    padding: 8px 18px;
-}
-html.mobile-mode.mobile-small .product-image{
-    width: 190px;
-    margin-top: 12px;
-}
-html.mobile-mode.mobile-small .mobile-scent{
-    font-size: 15px;
-    padding: 6px 14px;
-}
-html.mobile-mode.mobile-small .mobile-scent-wrapper{
-    gap: 7px;
-    margin: 14px 12px 0;
-}
-html.mobile-mode.mobile-small .mobile-bottom-card .mbc-header{
-    font-size: 18px;
-    padding: 18px 16px 0 16px;
-}
-html.mobile-mode.mobile-small .mobile-bottom-card .mbc-tawas-text{
-    font-size: 72px;
-    top: 60px;
-    left: 14px;
-}
-html.mobile-mode.mobile-small .mobile-bottom-card .mbc-tawas-image{
-    width: 68%;
-}
-html.mobile-mode.mobile-small .mobile-bottom-card .mbc-flower-rose{
-    width: 70px;
-}
-html.mobile-mode.mobile-small .mobile-bottom-card .mbc-flower-lavender{
-    width: 65px;
-}
-html.mobile-mode.mobile-small .right{
-    min-height: auto;
-}
-html.mobile-mode.mobile-small .question{
-    font-size: 24px;
-}
-html.mobile-mode.mobile-small .slogan{
-    font-size: 24px;
-    margin-bottom: 30px;
-}
-html.mobile-mode.mobile-small .desc{
-    font-size: 14px;
+    .right{
+        min-height: auto;
+    }
+    .question{
+        font-size: 24px;
+    }
+    .slogan{
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .desc{
+        font-size: 14px;
+    }
 }
 
 </style>
@@ -827,15 +748,8 @@ html.mobile-mode.mobile-small .desc{
 <div class="hero">
 
     <!-- GAMBAR KHUSUS MOBILE (HANYA TAMPIL DI HP) -->
-    <div class="mobile-hero-image" id="mobileHeroImg">
+    <div class="mobile-hero-image">
         <img src="produk.jpg" alt="Deododo Mobile Banner">
-    </div>
-
-    <!-- STRIPE DIVIDER MOBILE (loading bar animasi) -->
-    <div class="mobile-stripe-divider">
-        <div class="msd-bar msd-red"></div>
-        <div class="msd-bar msd-yellow"></div>
-        <div class="msd-bar msd-blue"></div>
     </div>
 
     <!-- GAMBAR DESKTOP (HANYA TAMPIL DI KOMPUTER) -->
@@ -978,29 +892,11 @@ html.mobile-mode.mobile-small .desc{
 
 <script>
 
-// ====== DESKTOP: fade in kiri & kanan ======
 setTimeout(() => {
     const leftElem = document.getElementById("leftSection");
     if(leftElem) leftElem.classList.add("show");
     document.getElementById("rightSection").classList.add("show");
 }, 2300);
-
-// ====== MOBILE: stripe loading bar → fade in gambar & konten ======
-(function(){
-    const isMobile = (window.innerWidth <= 768 && window.innerHeight > window.innerWidth) || window.innerWidth <= 500;
-    if(!isMobile) return;
-
-    const mobileImg = document.getElementById("mobileHeroImg");
-    const rightSection = document.getElementById("rightSection");
-
-    // Stripe selesai: delay 0s + 0.5s + 1s + durasi 0.6s = 1.6s total
-    const stripeDone = 1700; // sedikit margin
-
-    setTimeout(() => {
-        if(mobileImg) mobileImg.classList.add("loaded");
-        if(rightSection) rightSection.classList.add("loaded");
-    }, stripeDone);
-})();
 
 </script>
 
